@@ -64,7 +64,7 @@ public class Unleash : Action
             possibleCards[i].choicescript.DisableButton();
             if (thisPlayer.chosencard.gameObject == possibleCards[i].gameObject)
             {
-                yield return thisPlayer.FreePlayMe(possibleCards[i]);
+                thisPlayer.pv.RPC("FreePlayMe", RpcTarget.All, this.pv.ViewID);
             }
         }
 

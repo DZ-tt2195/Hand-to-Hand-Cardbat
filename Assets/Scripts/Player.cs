@@ -171,13 +171,7 @@ public class Player : MonoBehaviourPunCallbacks
                 nextCard.image.sprite = Manager.instance.hiddenCard;
             }
 
-            if (this.cardHand.childCount == 0)
-            {
-                nextCard.transform.SetParent(this.cardHand);
-                listOfHand.Add(nextCard);
-            }
-
-            else if (Manager.instance.sorting == Manager.Sorting.color)
+            if (Manager.instance.sorting == Manager.Sorting.color)
                 AddCardByColor(nextCard, 0, cardHand.childCount - 1, true);
             else
                 AddCardByCost(nextCard, 0, cardHand.childCount - 1);
@@ -188,6 +182,19 @@ public class Player : MonoBehaviourPunCallbacks
 
     void AddCardByColor(PlayerCard nextCard, int low, int high, bool hand)
     {
+        if (hand && this.listOfHand.Count == 0)
+        {
+            nextCard.transform.SetParent(this.cardHand);
+            listOfHand.Add(nextCard);
+            return;
+        }
+        else if (!hand && this.listOfPlay.Count == 0)
+        {
+            nextCard.transform.SetParent(this.cardPlay);
+            listOfPlay.Add(nextCard);
+            return;
+        }
+
         if (high <= low)
         {
             PlayerCard lowCard = cardHand.GetChild(low).GetComponent<PlayerCard>();
@@ -247,6 +254,12 @@ public class Player : MonoBehaviourPunCallbacks
 
     void AddCardByCost(PlayerCard nextCard, int low, int high)
     {
+        if (listOfHand.Count == 0)
+        {
+            listOfHand.Add(nextCard);
+            return;
+        }
+
         if (high <= low)
         {
             PlayerCard lowCard = cardHand.GetChild(low).GetComponent<PlayerCard>();
@@ -461,15 +474,15 @@ public class Player : MonoBehaviourPunCallbacks
 
     IEnumerator ChooseYourAction(bool extra)
     {
-        this.MakeMeCollector($"{this.name}'s Turn", false);
-        Collector x = newCollector;
-
         if (Manager.instance.EventActive("Job Fair"))
         {
-            yield return Manager.instance.listOfActions[2];
+            yield return Manager.instance.listOfActions[2].UseAction(this);
         }
         else
         {
+            this.MakeMeCollector($"{this.name}'s Turn", false);
+            Collector x = newCollector;
+
             Manager.instance.instructions.text = $"Choose an Action";
             for (int i = 0; i < Manager.instance.listOfActions.Count; i++)
             {
@@ -480,11 +493,11 @@ public class Player : MonoBehaviourPunCallbacks
             }
             yield return WaitForDecision();
 
+            PhotonNetwork.Destroy(x.pv);
             Action chosenAction = this.chosencard.GetComponent<Action>();
             Log.instance.pv.RPC("AddText", RpcTarget.All, $"{this.name} uses {chosenAction.name}.");
             yield return chosenAction.UseAction(this);
         }
-        PhotonNetwork.Destroy(x.pv);
     }
 
     [PunRPC]
@@ -495,7 +508,7 @@ public class Player : MonoBehaviourPunCallbacks
         cardsPlayedThisTurn.Clear();
         cardsDiscardedThisTurn = 0;
 
-        if (merchantDebt >= 0)
+        if (merchantDebt > 0)
         {
             yield return LoseCoin(merchantDebt);
             merchantDebt = 0;
@@ -543,7 +556,6 @@ public class Player : MonoBehaviourPunCallbacks
 
                 if (choice != "Decline")
                 {
-                    Log.instance.pv.RPC("AddText", RpcTarget.All, $"{this.name} plays {chosencard.logName}.");
                     this.pv.RPC("PlayCard", RpcTarget.All, chosencard.pv.ViewID);
                 }
                 else
@@ -559,11 +571,14 @@ public class Player : MonoBehaviourPunCallbacks
     {
         PlayerCard newCard = PhotonView.Find(cardID).GetComponent<PlayerCard>();
         newCard.image.sprite = newCard.originalImage;
+
         listOfHand.Remove(newCard);
         newCard.UnRotateMe();
         cardsPlayedThisTurn.Add(newCard);
         AddCardByColor(newCard, 0, cardPlay.childCount - 1, false);
+
         yield return LoseCoin(newCard.myCost);
+        Log.instance.AddText($"{this.name} plays {chosencard.logName}.");
 
         if (this.pv.AmOwner)
         {
@@ -572,12 +587,18 @@ public class Player : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    public IEnumerator FreePlayMe(PlayerCard newCard)
+    public IEnumerator FreePlayMe(int cardID)
     {
+        PlayerCard newCard = PhotonView.Find(cardID).GetComponent<PlayerCard>();
+        newCard.image.sprite = newCard.originalImage;
+
+        listOfHand.Remove(newCard);
         newCard.UnRotateMe();
         cardsPlayedThisTurn.Add(newCard);
         AddCardByColor(newCard, 0, cardPlay.childCount - 1, false);
+
         //yield return LoseCoin(newCard.myCost);
+        Log.instance.AddText($"{this.name} plays {chosencard.logName} for free.");
 
         if (this.pv.AmOwner)
         {

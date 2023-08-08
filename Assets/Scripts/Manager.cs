@@ -145,6 +145,7 @@ public class Manager : MonoBehaviour, IOnEventCallback
         instructions.text = "Everyone's in! Setting up...";
 
         yield return new WaitForSeconds(1f);
+        ChangeSorting();
 
         if (PhotonNetwork.IsMasterClient)
         {
@@ -231,7 +232,6 @@ public class Manager : MonoBehaviour, IOnEventCallback
         yield return GetPlayers();
 
         yield return new WaitForSeconds(1f);
-        ChangeSorting();
         gameon = true;
 
         object[] sendingdata = new object[1];
@@ -243,6 +243,7 @@ public class Manager : MonoBehaviour, IOnEventCallback
 
         while (gameon && turnNumber <= 9)
         {
+            yield return new WaitForSeconds(0.5f);
             Log.instance.pv.RPC("AddText", RpcTarget.All, $"");
             Log.instance.pv.RPC("AddText", RpcTarget.All, $"ROUND {turnNumber+1}");
 
@@ -254,8 +255,8 @@ public class Manager : MonoBehaviour, IOnEventCallback
 
             for (int i = 0; i < playerOrderGame.Count; i++)
             {
-                yield return new WaitForSeconds(0.5f);
                 yield return playerOrderGame[i].TakeTurnRPC(playerOrderGame[i].photonplayer);
+                yield return new WaitForSeconds(0.5f);
             }
 
             sendingdata[0] = turnNumber + 1;

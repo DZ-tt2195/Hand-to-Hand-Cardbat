@@ -35,7 +35,7 @@ public class Cultist : PlayerCard
             if (currPlayer.choice == "Yes")
             {
                 currPlayer.cardsDiscardedThisTurn++;
-                yield return currPlayer.FreePlayMe(this);
+                currPlayer.pv.RPC("FreePlayMe", RpcTarget.All, this.pv.ViewID);
             }
             else
             {
