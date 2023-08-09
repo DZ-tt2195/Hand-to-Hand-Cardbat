@@ -257,6 +257,7 @@ public class Player : MonoBehaviourPunCallbacks
         if (listOfHand.Count == 0)
         {
             listOfHand.Add(nextCard);
+            nextCard.transform.SetParent(cardHand.transform);
             return;
         }
 

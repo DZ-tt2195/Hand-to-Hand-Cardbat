@@ -144,7 +144,7 @@ public class Manager : MonoBehaviour, IOnEventCallback
 
         instructions.text = "Everyone's in! Setting up...";
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         ChangeSorting();
 
         if (PhotonNetwork.IsMasterClient)
