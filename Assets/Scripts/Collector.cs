@@ -36,6 +36,8 @@ public class Collector : MonoBehaviour
     public void DestroyButton(int sibling)
     {
         Destroy(this.transform.GetChild(2).transform.GetChild(sibling).gameObject);
+        if (this.transform.GetChild(2).transform.childCount == 0)
+            PhotonNetwork.Destroy(this.pv);
     }
 
     [PunRPC]

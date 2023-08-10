@@ -157,7 +157,7 @@ public class Player : MonoBehaviourPunCallbacks
     {
         for (int i = 0; i < cardIDs.Length; i++)
         {
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.03f);
             PlayerCard nextCard = PhotonView.Find(cardIDs[i]).gameObject.GetComponent<PlayerCard>();
 
             if (this.pv.AmOwner)

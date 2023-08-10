@@ -26,8 +26,10 @@ public class Log : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            AddText($"Test {linesOfText}");
+        #if UNITY_EDITOR
+            if (Input.GetKeyDown(KeyCode.Space))
+                AddText($"Test {linesOfText}");
+        #endif
     }
 
     [PunRPC]
@@ -36,13 +38,13 @@ public class Log : MonoBehaviour
         linesOfText++;
         textBox.text += text + "\n";
 
-        if (linesOfText >= 30)
+        if (linesOfText >= 35)
         {
-            textRT.sizeDelta = new Vector2(383, 1350 + 40 * (linesOfText - 30));
+            textRT.sizeDelta = new Vector2(460, 1350 + 40 * (linesOfText - 30));
 
             if (scroll.value <= 0.4f)
             {
-                textRT.localPosition = new Vector2(-20, textRT.localPosition.y + 20);
+                textRT.localPosition = new Vector2(-40, textRT.localPosition.y + 20);
                 scroll.value = 0;
             }
         }

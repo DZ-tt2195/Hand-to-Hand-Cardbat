@@ -42,7 +42,7 @@ public class PlayerCard : Card
 
         if (Manager.instance.turnNumber == 0)
         {
-            Log.instance.pv.RPC("AddText", RpcTarget.All, $"{currPlayer.name} can't command cards on Turn 1.");
+            Log.instance.pv.RPC("AddText", RpcTarget.All, $"{currPlayer.name} fails to command {this.logName}.");
             yield break;
         }
 
@@ -55,7 +55,7 @@ public class PlayerCard : Card
 
         if (source.director && this.director)
         {
-            Log.instance.pv.RPC("AddText", RpcTarget.All, $"{source.logName} can't command {this.logName}.");
+            Log.instance.pv.RPC("AddText", RpcTarget.All, $"{currPlayer.name} fails to command {this.logName}.");
             yield break;
         }
         else
