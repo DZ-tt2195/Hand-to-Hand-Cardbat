@@ -38,9 +38,12 @@ public class PlayerCard : Card
 
     public IEnumerator InitialCommand(Player currPlayer, Card source)
     {
+        Log.instance.pv.RPC("AddText", RpcTarget.All, $"");
+
         if (Manager.instance.turnNumber == 0)
         {
             Log.instance.pv.RPC("AddText", RpcTarget.All, $"{currPlayer.name} can't command cards on Turn 1.");
+            yield break;
         }
 
         if (Manager.instance.EventActive("Zoo Opening"))
@@ -53,6 +56,7 @@ public class PlayerCard : Card
         if (source.director && this.director)
         {
             Log.instance.pv.RPC("AddText", RpcTarget.All, $"{source.logName} can't command {this.logName}.");
+            yield break;
         }
         else
         {

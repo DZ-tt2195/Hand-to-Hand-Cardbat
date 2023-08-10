@@ -35,7 +35,7 @@ public class Collector : MonoBehaviour
     [PunRPC]
     public void DestroyButton(int sibling)
     {
-        Destroy(this.transform.GetChild(sibling).gameObject);
+        Destroy(this.transform.GetChild(2).transform.GetChild(sibling).gameObject);
     }
 
     [PunRPC]

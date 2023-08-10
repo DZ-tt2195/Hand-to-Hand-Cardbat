@@ -12,7 +12,10 @@ public class Action : Card
 
     public IEnumerator ColorCommand(Player currPlayer, PlayerCard.CardColor thisColor)
     {
+        this.logName = this.name;
         pv.RPC("WaitForPlayer", RpcTarget.Others, this.name);
+        yield return new WaitForSeconds(0.5f);
+
         List<PlayerCard> possibleCards = new List<PlayerCard>();
         List<PlayerCard> chosenCards = new List<PlayerCard>();
 

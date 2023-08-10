@@ -23,7 +23,7 @@ public class Villain : PlayerCard
         {
             Player nextPlayer = Manager.instance.playerOrderGame[playertracker];
             if (nextPlayer != currPlayer)
-                nextPlayer.pv.RPC("TakeCrown", RpcTarget.MasterClient, (nextPlayer.coins >= 10) ? 2 : 1);
+                nextPlayer.pv.RPC("TakeCrown", RpcTarget.All, (nextPlayer.coins >= 10) ? 2 : 1);
 
             playertracker = (playertracker == Manager.instance.playerOrderGame.Count - 1) ? 0 : playertracker + 1;
         }

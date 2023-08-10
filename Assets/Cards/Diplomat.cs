@@ -18,6 +18,7 @@ public class Diplomat : PlayerCard
     {
         currPlayer.TryToDraw(1);
 
+        yield return new WaitForSeconds(0.5f);
         List<PlayerCard> possibleCards = new List<PlayerCard>();
         for (int i = 0; i < currPlayer.listOfHand.Count; i++)
         {

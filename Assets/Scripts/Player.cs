@@ -240,10 +240,20 @@ public class Player : MonoBehaviourPunCallbacks
 
         if (nextCard.suitCode == midCard.suitCode)
         {
-            listOfHand.Insert(mid + 1, nextCard);
-            nextCard.transform.SetParent(cardHand.transform);
-            nextCard.transform.SetSiblingIndex(mid + 1);
-            return;
+            if (hand)
+            {
+                listOfHand.Insert(mid + 1, nextCard);
+                nextCard.transform.SetParent(cardHand.transform);
+                nextCard.transform.SetSiblingIndex(mid + 1);
+                return;
+            }
+            else
+            {
+                listOfPlay.Insert(mid + 1, nextCard);
+                nextCard.transform.SetParent(cardPlay.transform);
+                nextCard.transform.SetSiblingIndex(mid + 1);
+                return;
+            }
         }
 
         if (nextCard.suitCode > midCard.suitCode)
@@ -330,41 +340,53 @@ public class Player : MonoBehaviourPunCallbacks
     [PunRPC]
     public IEnumerator GainCoin(int n)
     {
-        yield return new WaitForSeconds(0.5f);
-        Log.instance.AddText($"{this.name} gains ${n}.");
-        coins += n;
-        UpdateButtonText();
+        if (n > 0)
+        {
+            yield return new WaitForSeconds(0.5f);
+            Log.instance.AddText($"{this.name} gains ${n}.");
+            coins += n;
+            UpdateButtonText();
+        }
     }
 
     [PunRPC]
     public IEnumerator LoseCoin(int n)
     {
-        yield return new WaitForSeconds(0.5f);
-        Log.instance.AddText($"{this.name} loses -${n}.");
-        coins -= n;
-        if (coins <= 0)
-            coins = 0;
-        UpdateButtonText();
+        if (n > 0)
+        {
+            yield return new WaitForSeconds(0.5f);
+            Log.instance.AddText($"{this.name} loses -${n}.");
+            coins -= n;
+            if (coins <= 0)
+                coins = 0;
+            UpdateButtonText();
+        }
     }
 
     [PunRPC]
     public IEnumerator TakeCrown(int n)
     {
-        yield return new WaitForSeconds(0.5f);
-        Log.instance.AddText($"{this.name} takes -{n} Crowns.");
-        negCrowns += n;
-        UpdateButtonText();
+        if (n > 0)
+        {
+            yield return new WaitForSeconds(0.5f);
+            Log.instance.AddText($"{this.name} takes -{n} Crowns.");
+            negCrowns += n;
+            UpdateButtonText();
+        }
     }
 
     [PunRPC]
     public IEnumerator LoseCrown(int n)
     {
-        yield return new WaitForSeconds(0.5f);
-        Log.instance.AddText($"{this.name} removes -{n} Crowns.");
-        negCrowns -= n;
-        if (negCrowns <= 0)
-            negCrowns = 0;
-        UpdateButtonText();
+        if (n > 0)
+        {
+            yield return new WaitForSeconds(0.5f);
+            Log.instance.AddText($"{this.name} removes -{n} Crowns.");
+            negCrowns -= n;
+            if (negCrowns <= 0)
+                negCrowns = 0;
+            UpdateButtonText();
+        }
     }
 
     [PunRPC]
@@ -477,6 +499,7 @@ public class Player : MonoBehaviourPunCallbacks
     {
         if (Manager.instance.EventActive("Job Fair"))
         {
+            Log.instance.pv.RPC("AddText", RpcTarget.All, $"{this.name} uses Recruit.");
             yield return Manager.instance.listOfActions[2].UseAction(this);
         }
         else
@@ -559,10 +582,6 @@ public class Player : MonoBehaviourPunCallbacks
                 {
                     this.pv.RPC("PlayCard", RpcTarget.All, chosencard.pv.ViewID);
                 }
-                else
-                {
-                    Log.instance.pv.RPC("AddText", RpcTarget.All, $"{this.name} plays nothing.");
-                }
             }
         }
     }
@@ -579,7 +598,7 @@ public class Player : MonoBehaviourPunCallbacks
         AddCardByColor(newCard, 0, cardPlay.childCount - 1, false);
 
         yield return LoseCoin(newCard.myCost);
-        Log.instance.AddText($"{this.name} plays {chosencard.logName}.");
+        Log.instance.AddText($"{this.name} plays {newCard.logName}.");
 
         if (this.pv.AmOwner)
         {
@@ -599,7 +618,7 @@ public class Player : MonoBehaviourPunCallbacks
         AddCardByColor(newCard, 0, cardPlay.childCount - 1, false);
 
         //yield return LoseCoin(newCard.myCost);
-        Log.instance.AddText($"{this.name} plays {chosencard.logName} for free.");
+        Log.instance.AddText($"{this.name} plays {newCard.logName} for free.");
 
         if (this.pv.AmOwner)
         {

@@ -23,7 +23,7 @@ public class Bandit : PlayerCard
         {
             Player nextPlayer = Manager.instance.playerOrderGame[playertracker];
             if (nextPlayer != currPlayer)
-                nextPlayer.pv.RPC("LoseCoin", RpcTarget.MasterClient, (currPlayer.lastUsedAction == Player.Actions.Recruit) ? 6 : 3);
+                nextPlayer.pv.RPC("LoseCoin", RpcTarget.All, (currPlayer.lastUsedAction == Player.Actions.Recruit) ? 6 : 3);
 
             playertracker = (playertracker == Manager.instance.playerOrderGame.Count - 1) ? 0 : playertracker + 1;
         }
