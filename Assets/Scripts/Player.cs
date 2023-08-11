@@ -641,13 +641,13 @@ public class Player : MonoBehaviourPunCallbacks
         if (textCollector)
         {
             newCollector = Instantiate((Manager.instance.textCollector));
-            newCollector.StatsSetup(itsText, this.playerposition, -150);
+            newCollector.StatsSetup(itsText, this.playerposition, -200);
         }
         else
         {
             GameObject nc = PhotonNetwork.Instantiate(Manager.instance.cardCollector.name, new Vector3(0, -200, 0), Quaternion.identity);
             newCollector = nc.GetComponent<Collector>();
-            newCollector.pv.RPC("StatsSetup", RpcTarget.All, itsText, this.playerposition, 0);
+            newCollector.pv.RPC("StatsSetup", RpcTarget.All, itsText, this.playerposition, 200);
         }
     }
 

@@ -41,6 +41,8 @@ public class Necromancer : PlayerCard
 
         yield return commandMe.InitialCommand(currPlayer, this);
         yield return commandMe.InitialCommand(currPlayer, this);
+
+        PhotonNetwork.Destroy(y.pv);
     }
 
     [PunRPC]
