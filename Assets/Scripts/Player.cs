@@ -355,7 +355,7 @@ public class Player : MonoBehaviourPunCallbacks
         if (n > 0)
         {
             yield return new WaitForSeconds(0.25f);
-            Log.instance.AddText($"{this.name} loses -${n}.");
+            Log.instance.AddText($"{this.name} loses ${n}.");
             coins -= n;
             if (coins <= 0)
                 coins = 0;
@@ -661,14 +661,14 @@ public class Player : MonoBehaviourPunCallbacks
         switch (code)
         {
             case 0:
-                Log.instance.pv.RPC("AddText", RpcTarget.All, $"{this.name} discards {discardMe.logName} from the deck.");
+                Log.instance.AddText($"{this.name} discards {discardMe.logName} from the deck.");
                 break;
             case 1:
-                Log.instance.pv.RPC("AddText", RpcTarget.All, $"{this.name} discards {discardMe.logName} from their hand.");
+                Log.instance.AddText($"{this.name} discards {discardMe.logName} from their hand.");
                 listOfHand.Remove(discardMe);
                 break;
             case 2:
-                Log.instance.pv.RPC("AddText", RpcTarget.All, $"{this.name} discards {discardMe.logName} from their play area.");
+                Log.instance.AddText($"{this.name} discards {discardMe.logName} from play.");
                 listOfPlay.Remove(discardMe);
                 break;
         }

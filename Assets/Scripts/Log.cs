@@ -38,9 +38,9 @@ public class Log : MonoBehaviour
         linesOfText++;
         textBox.text += text + "\n";
 
-        if (linesOfText >= 35)
+        if (linesOfText >= 40)
         {
-            textRT.sizeDelta = new Vector2(460, 1350 + 40 * (linesOfText - 30));
+            textRT.sizeDelta = new Vector2(510, 1350 + 40 * (linesOfText - 30));
 
             if (scroll.value <= 0.4f)
             {
