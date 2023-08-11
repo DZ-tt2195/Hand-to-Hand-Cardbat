@@ -16,6 +16,6 @@ public class Collect : Action
 
         yield return ColorCommand(currPlayer, PlayerCard.CardColor.Gold);
 
-        ActionEnd(currPlayer, PlayerCard.CardColor.None);
+        ActionEnd(currPlayer, PlayerCard.CardColor.Gold);
     }
 }

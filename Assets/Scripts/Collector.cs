@@ -24,11 +24,11 @@ public class Collector : MonoBehaviour
     }
 
     [PunRPC]
-    public void StatsSetup(string text, int playerPosition)
+    public void StatsSetup(string text, int playerPosition, int thisPosition)
     {
         this.textbox.text = text;
         this.transform.SetParent( Manager.instance.canvas.transform);
-        this.transform.localPosition = new Vector3(0, 0, 0);
+        this.transform.localPosition = new Vector3(0, thisPosition, 0);
         this.user = Manager.instance.playerOrderGame[playerPosition];
     }
 

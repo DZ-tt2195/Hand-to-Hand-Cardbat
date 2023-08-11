@@ -30,6 +30,6 @@ public class Explore : Action
 
         yield return ColorCommand(currPlayer, PlayerCard.CardColor.Blue);
 
-        ActionEnd(currPlayer, PlayerCard.CardColor.None);
+        ActionEnd(currPlayer, PlayerCard.CardColor.Blue);
     }
 }

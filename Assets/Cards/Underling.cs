@@ -7,7 +7,7 @@ public class Underling : PlayerCard
 {
     public override void Setup()
     {
-        logName = "a Underling";
+        logName = "an Underling";
         myColor = CardColor.Red;
         myCost = 0;
         myCrowns = 1;
@@ -38,6 +38,7 @@ public class Underling : PlayerCard
     {
         Player requestingPlayer = Manager.instance.playerOrderGame[requestingPlayerPosition];
         Player thisPlayer = Manager.instance.playerOrderGame[thisPlayerPosition];
+        thisPlayer.pv.RPC("WaitForPlayer", RpcTarget.Others, this.name);
 
         List<PlayerCard> possibleCards = new List<PlayerCard>();
         for (int i = 0; i<thisPlayer.listOfHand.Count; i++)

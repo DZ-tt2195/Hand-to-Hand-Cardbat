@@ -51,6 +51,7 @@ public class Hunter : PlayerCard
     {
         Player requestingPlayer = Manager.instance.playerOrderGame[requestingPlayerPosition];
         Player thisPlayer = Manager.instance.playerOrderGame[thisPlayerPosition];
+        thisPlayer.pv.RPC("WaitForPlayer", RpcTarget.Others, this.name);
 
         PlayerCard.CardColor chosenColor = PlayerCard.CardColor.None;
         switch (choice)
@@ -73,25 +74,27 @@ public class Hunter : PlayerCard
                 possibleCards.Add(thisPlayer.listOfHand[i]);
         }
 
-        Manager.instance.instructions.text = $"Discard a {choice} card with {requestingPlayer.name}'s Hunter?";
-        thisPlayer.MakeMeCollector($"{requestingPlayer.name}'s Hunter", true);
-        for (int i = 0; i < possibleCards.Count; i++)
-            possibleCards[i].choicescript.EnableButton(thisPlayer, true);
-        Collector x = thisPlayer.newCollector;
-        x.pv.RPC("AddText", RpcTarget.All, "Decline", true);
-
-        yield return thisPlayer.WaitForDecision();
-
-        for (int i = 0; i < possibleCards.Count; i++)
-            possibleCards[i].choicescript.DisableButton();
-        Destroy(x.gameObject);
-
-        if (thisPlayer.chosencard != null)
+        if (possibleCards.Count >= 1)
         {
-            yield return thisPlayer.chosencard.GetComponent<PlayerCard>().DiscardEffect(thisPlayer, 1);
-            thisPlayer.TryToGain(4);
-        }
+            Manager.instance.instructions.text = $"Discard a {choice} card with {requestingPlayer.name}'s Hunter?";
+            thisPlayer.MakeMeCollector($"{requestingPlayer.name}'s Hunter", true);
+            for (int i = 0; i < possibleCards.Count; i++)
+                possibleCards[i].choicescript.EnableButton(thisPlayer, true);
+            Collector x = thisPlayer.newCollector;
+            x.pv.RPC("AddText", RpcTarget.All, "Decline", true);
 
+            yield return thisPlayer.WaitForDecision();
+
+            for (int i = 0; i < possibleCards.Count; i++)
+                possibleCards[i].choicescript.DisableButton();
+            Destroy(x.gameObject);
+
+            if (thisPlayer.chosencard != null)
+            {
+                yield return thisPlayer.chosencard.GetComponent<PlayerCard>().DiscardEffect(thisPlayer, 1);
+                thisPlayer.TryToGain(4);
+            }
+        }
         Manager.instance.playerOrderGame[requestingPlayerPosition].pv.RPC("WaitDone", Manager.instance.playerOrderPhoton[requestingPlayerPosition]);
     }
 }

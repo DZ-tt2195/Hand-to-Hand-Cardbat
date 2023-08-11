@@ -7,7 +7,7 @@ public class Overlord : PlayerCard
 {
     public override void Setup()
     {
-        logName = "a Overlord";
+        logName = "an Overlord";
         myColor = CardColor.Red;
         myCost = 10;
         myCrowns = 3;

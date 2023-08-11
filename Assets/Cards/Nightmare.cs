@@ -39,6 +39,7 @@ public class Nightmare : PlayerCard
     {
         Player requestingPlayer = Manager.instance.playerOrderGame[requestingPlayerPosition];
         Player thisPlayer = Manager.instance.playerOrderGame[thisPlayerPosition];
+        thisPlayer.pv.RPC("WaitForPlayer", RpcTarget.Others, this.name);
 
         if (thisPlayer.listOfPlay.Count > 2)
         {

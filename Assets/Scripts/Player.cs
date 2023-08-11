@@ -430,6 +430,7 @@ public class Player : MonoBehaviourPunCallbacks
 
     IEnumerator ResolveEvents(Event.EventTrigger x)
     {
+        Manager.instance.instructions.text = "Resolve an Event.";
         this.MakeMeCollector($"{this.name}'s Turn", false);
         Collector y = newCollector;
         List<Event> toResolve = new List<Event>();
@@ -631,13 +632,13 @@ public class Player : MonoBehaviourPunCallbacks
         if (textCollector)
         {
             newCollector = Instantiate((Manager.instance.textCollector));
-            newCollector.StatsSetup(itsText, this.playerposition);
+            newCollector.StatsSetup(itsText, this.playerposition, -150);
         }
         else
         {
             GameObject nc = PhotonNetwork.Instantiate(Manager.instance.cardCollector.name, new Vector3(0, -200, 0), Quaternion.identity);
             newCollector = nc.GetComponent<Collector>();
-            newCollector.pv.RPC("StatsSetup", RpcTarget.All, itsText, this.playerposition);
+            newCollector.pv.RPC("StatsSetup", RpcTarget.All, itsText, this.playerposition, 0);
         }
     }
 

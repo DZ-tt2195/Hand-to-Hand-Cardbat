@@ -23,8 +23,6 @@ public class Unleash : Action
             playertracker = (playertracker == Manager.instance.playerOrderGame.Count - 1) ? 0 : playertracker + 1;
         }
 
-        Debug.Log("falconers done");
-
         if (!Manager.instance.EventActive("Vacation"))
         {
             currPlayer.pv.RPC("TakeCrown", RpcTarget.All, 5);
@@ -41,6 +39,7 @@ public class Unleash : Action
     {
         Player requestingPlayer = Manager.instance.playerOrderGame[requestingPlayerPosition];
         Player thisPlayer = Manager.instance.playerOrderGame[thisPlayerPosition];
+        thisPlayer.pv.RPC("WaitForPlayer", RpcTarget.Others, this.name);
 
         List<PlayerCard> possibleCards = new List<PlayerCard>();
         for (int i = 0; i < thisPlayer.listOfHand.Count; i++)
@@ -64,7 +63,7 @@ public class Unleash : Action
             possibleCards[i].choicescript.DisableButton();
             if (thisPlayer.chosencard.gameObject == possibleCards[i].gameObject)
             {
-                thisPlayer.pv.RPC("FreePlayMe", RpcTarget.All, this.pv.ViewID);
+                thisPlayer.pv.RPC("FreePlayMe", RpcTarget.All, thisPlayer.chosencard.pv.ViewID);
             }
         }
 

@@ -31,6 +31,7 @@ public class Familiar : PlayerCard
         for (int i = 0; i < listOfCards.Count; i++)
         {
             x.pv.RPC("AddCard", RpcTarget.All, listOfCards[i].pv.ViewID, listOfCards[i].CanPlayThis(currPlayer));
+            yield return listOfCards[i].DiscardEffect(currPlayer, 0);
         }
 
         yield return currPlayer.WaitForDecision();
