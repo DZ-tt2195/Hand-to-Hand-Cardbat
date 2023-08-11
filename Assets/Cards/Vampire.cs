@@ -23,13 +23,14 @@ public class Vampire : PlayerCard
         {
             Player nextPlayer = Manager.instance.playerOrderGame[playertracker];
             Manager.instance.instructions.text = $"Waiting for {nextPlayer.name}...";
-            currPlayer.waiting = true;
             if (nextPlayer != currPlayer)
+            {
+                currPlayer.waiting = true;
                 this.pv.RPC("Discard5", nextPlayer.photonplayer, nextPlayer.playerposition, currPlayer.playerposition);
 
-            while (currPlayer.waiting)
-                yield return null;
-
+                while (currPlayer.waiting)
+                    yield return null;
+            }
             playertracker = (playertracker == Manager.instance.playerOrderGame.Count - 1) ? 0 : playertracker + 1;
         }
     }

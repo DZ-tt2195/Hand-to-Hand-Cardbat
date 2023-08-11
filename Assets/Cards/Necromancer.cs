@@ -33,16 +33,12 @@ public class Necromancer : PlayerCard
         yield return currPlayer.WaitForDecision();
 
         PlayerCard commandMe = currPlayer.chosencard.GetComponent<PlayerCard>();
+        x.pv.RPC("DestroyOtherButtons", RpcTarget.All, commandMe.pv.ViewID);
+
+        yield return commandMe.InitialCommand(currPlayer, this);
+        yield return commandMe.InitialCommand(currPlayer, this);
+
         PhotonNetwork.Destroy(x.pv);
-
-        currPlayer.MakeMeCollector("Necromancer", false);
-        Collector y = currPlayer.newCollector;
-        y.pv.RPC("AddCard", RpcTarget.All, commandMe.pv.ViewID, false);
-
-        yield return commandMe.InitialCommand(currPlayer, this);
-        yield return commandMe.InitialCommand(currPlayer, this);
-
-        PhotonNetwork.Destroy(y.pv);
     }
 
     [PunRPC]

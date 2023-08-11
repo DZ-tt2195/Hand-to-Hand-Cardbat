@@ -35,9 +35,26 @@ public class Collector : MonoBehaviour
     [PunRPC]
     public void DestroyButton(int sibling)
     {
-        Destroy(this.transform.GetChild(2).transform.GetChild(sibling).gameObject);
-        if (this.transform.GetChild(2).transform.childCount == 0)
+        SendChoice toDestroy = this.transform.GetChild(2).transform.GetChild(sibling).GetComponent<SendChoice>();
+        buttonsInCollector.Remove(toDestroy);
+        Destroy(toDestroy.gameObject);
+
+        Debug.Log(this.transform.GetChild(2).transform.childCount);
+        if (this.transform.GetChild(2).transform.childCount <= 1)
             PhotonNetwork.Destroy(this.pv);
+    }
+
+    [PunRPC]
+    public void DestroyOtherButtons(int cardID)
+    {
+        while (buttonsInCollector.Count > 0)
+        {
+            SendChoice toDestroy = buttonsInCollector[0];
+            buttonsInCollector.Remove(toDestroy);
+            Destroy(toDestroy.gameObject);
+        }
+
+        AddCard(cardID, false);
     }
 
     [PunRPC]

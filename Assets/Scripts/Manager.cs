@@ -344,6 +344,7 @@ public class Manager : MonoBehaviour, IOnEventCallback
 
             endText.transform.parent.gameObject.SetActive(true);
             endText.transform.parent.SetAsLastSibling();
+            Log.instance.transform.SetAsLastSibling();
 
             instructions.text = endgame;
             blownUp.SetActive(false);

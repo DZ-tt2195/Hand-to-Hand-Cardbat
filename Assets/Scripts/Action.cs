@@ -69,6 +69,7 @@ public class Action : Card
             for (int i = 0; i < chosenCards.Count; i++)
             {
                 pv.RPC("WaitForPlayer", RpcTarget.Others, this.name);
+                Manager.instance.instructions.text = $"Command a card.";
                 x.EnableAll();
                 yield return currPlayer.WaitForDecision();
 
@@ -76,8 +77,6 @@ public class Action : Card
                 x.pv.RPC("DestroyButton", RpcTarget.All, currPlayer.chosenbutton.transform.GetSiblingIndex());
                 yield return currPlayer.chosencard.GetComponent<PlayerCard>().InitialCommand(currPlayer, this);
             }
-
-            PhotonNetwork.Destroy(x.pv);
         }
 
         yield return new WaitForSeconds(0.5f);

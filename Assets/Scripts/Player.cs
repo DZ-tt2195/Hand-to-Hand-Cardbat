@@ -430,9 +430,9 @@ public class Player : MonoBehaviourPunCallbacks
 
     IEnumerator ResolveEvents(Event.EventTrigger x)
     {
+        List<Event> toResolve = new List<Event>();
         this.MakeMeCollector($"{this.name}'s Turn", false);
         Collector y = newCollector;
-        List<Event> toResolve = new List<Event>();
 
         for (int i = 0; i<Manager.instance.chosenEvents.Count; i++)
         {
@@ -461,7 +461,10 @@ public class Player : MonoBehaviourPunCallbacks
                 yield return this.chosencard.GetComponent<Event>().UseEvent(this);
             }
         }
-        PhotonNetwork.Destroy(y.pv);
+        if (y != null)
+        {
+            PhotonNetwork.Destroy(y.pv);
+        }
     }
 
     [PunRPC]
@@ -641,13 +644,13 @@ public class Player : MonoBehaviourPunCallbacks
         if (textCollector)
         {
             newCollector = Instantiate((Manager.instance.textCollector));
-            newCollector.StatsSetup(itsText, this.playerposition, -200);
+            newCollector.StatsSetup(itsText, this.playerposition, -150);
         }
         else
         {
             GameObject nc = PhotonNetwork.Instantiate(Manager.instance.cardCollector.name, new Vector3(0, -200, 0), Quaternion.identity);
             newCollector = nc.GetComponent<Collector>();
-            newCollector.pv.RPC("StatsSetup", RpcTarget.All, itsText, this.playerposition, 200);
+            newCollector.pv.RPC("StatsSetup", RpcTarget.All, itsText, this.playerposition, 150);
         }
     }
 
