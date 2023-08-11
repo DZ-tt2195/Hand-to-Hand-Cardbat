@@ -79,6 +79,8 @@ public class Action : Card
 
             PhotonNetwork.Destroy(x.pv);
         }
+
+        yield return new WaitForSeconds(0.5f);
     }
 
     public void ActionEnd(Player currPlayer, PlayerCard.CardColor thisColor)

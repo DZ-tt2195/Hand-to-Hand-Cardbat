@@ -342,7 +342,7 @@ public class Player : MonoBehaviourPunCallbacks
     {
         if (n > 0)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.25f);
             Log.instance.AddText($"{this.name} gains ${n}.");
             coins += n;
             UpdateButtonText();
@@ -354,7 +354,7 @@ public class Player : MonoBehaviourPunCallbacks
     {
         if (n > 0)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.25f);
             Log.instance.AddText($"{this.name} loses -${n}.");
             coins -= n;
             if (coins <= 0)
@@ -368,7 +368,7 @@ public class Player : MonoBehaviourPunCallbacks
     {
         if (n > 0)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.25f);
             Log.instance.AddText($"{this.name} takes -{n} Crowns.");
             negCrowns += n;
             UpdateButtonText();
@@ -380,7 +380,7 @@ public class Player : MonoBehaviourPunCallbacks
     {
         if (n > 0)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.25f);
             Log.instance.AddText($"{this.name} removes -{n} Crowns.");
             negCrowns -= n;
             if (negCrowns <= 0)
@@ -430,7 +430,6 @@ public class Player : MonoBehaviourPunCallbacks
 
     IEnumerator ResolveEvents(Event.EventTrigger x)
     {
-        Manager.instance.instructions.text = "Resolve an Event.";
         this.MakeMeCollector($"{this.name}'s Turn", false);
         Collector y = newCollector;
         List<Event> toResolve = new List<Event>();
@@ -445,18 +444,23 @@ public class Player : MonoBehaviourPunCallbacks
             }
         }
 
-        for (int i = 0; i < toResolve.Count; i++)
+        if (toResolve.Count >= 1)
         {
-            pv.RPC("WaitForPlayer", RpcTarget.Others, this.name);
-            y.EnableAll();
-            yield return this.WaitForDecision();
+            Manager.instance.instructions.text = "Resolve an Event.";
+            for (int i = 0; i < toResolve.Count; i++)
+            {
+                pv.RPC("WaitForPlayer", RpcTarget.Others, this.name);
+                y.EnableAll();
+                yield return this.WaitForDecision();
 
-            y.DisableAll();
-            y.pv.RPC("DestroyButton", RpcTarget.All, this.chosenbutton.transform.GetSiblingIndex());
-            Log.instance.pv.RPC("AddText", RpcTarget.All, $"{this.name} resolves {chosencard.logName}.");
-            yield return this.chosencard.GetComponent<Event>().UseEvent(this);
+                y.DisableAll();
+                y.pv.RPC("DestroyButton", RpcTarget.All, this.chosenbutton.transform.GetSiblingIndex());
+
+                Log.instance.pv.RPC("AddText", RpcTarget.All, $"");
+                Log.instance.pv.RPC("AddText", RpcTarget.All, $"{this.name} resolves {chosencard.logName}.");
+                yield return this.chosencard.GetComponent<Event>().UseEvent(this);
+            }
         }
-
         PhotonNetwork.Destroy(y.pv);
     }
 
@@ -556,8 +560,6 @@ public class Player : MonoBehaviourPunCallbacks
         if (cardsToChoose.Count > 0)
         {
             int canBePlayed = 0;
-
-            this.MakeMeCollector($"{source}", true);
             for (int i = 0; i < cardsToChoose.Count; i++)
             {
                 if (cardsToChoose[i].CanPlayThis(this))
@@ -569,6 +571,7 @@ public class Player : MonoBehaviourPunCallbacks
 
             if (canBePlayed > 0)
             {
+                this.MakeMeCollector($"{source}", true);
                 Manager.instance.instructions.text = $"Play a card with {source}?";
                 Collector x = newCollector;
                 x.AddText("Decline", true);
@@ -582,6 +585,10 @@ public class Player : MonoBehaviourPunCallbacks
                 if (choice != "Decline")
                 {
                     this.pv.RPC("PlayCard", RpcTarget.All, chosencard.pv.ViewID);
+
+                    waiting = true;
+                    while (waiting)
+                        yield return null;
                 }
             }
         }
@@ -604,6 +611,7 @@ public class Player : MonoBehaviourPunCallbacks
         if (this.pv.AmOwner)
         {
             yield return newCard.PlayEffect(this);
+            this.WaitDone();
         }
     }
 
@@ -624,6 +632,7 @@ public class Player : MonoBehaviourPunCallbacks
         if (this.pv.AmOwner)
         {
             yield return newCard.PlayEffect(this);
+            this.WaitDone();
         }
     }
 

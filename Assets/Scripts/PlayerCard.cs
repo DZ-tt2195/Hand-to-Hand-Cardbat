@@ -11,7 +11,7 @@ public class PlayerCard : Card
     [HideInInspector] public int myCost;
     [HideInInspector] public int myCrowns;
     [HideInInspector] public bool rotated;
-    [HideInInspector] public int suitCode;
+    public int suitCode;
     public Sprite originalImage;
 
     void Start()
@@ -60,7 +60,7 @@ public class PlayerCard : Card
         }
         else
         {
-            Log.instance.pv.RPC("AddText", RpcTarget.All, $"{source.logName} commands {this.logName}.");
+            Log.instance.pv.RPC("AddText", RpcTarget.All, $"{currPlayer.name} commands {this.logName}.");
             yield return this.NowCommand(currPlayer);
         }
     }
