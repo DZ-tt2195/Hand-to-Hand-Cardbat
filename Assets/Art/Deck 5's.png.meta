@@ -103,6 +103,30 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -121,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c22ae95142fdb4ce682c1e537cbe2306
-      internalID: 379133281
+      spriteID: 7ac081cd9dc96400d9dccb9ec3b5db05
+      internalID: 145111111
       vertices: []
       indices: 
       edges: []
@@ -142,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fba6cbeb8e4e347419e32888fe7c4243
-      internalID: 511461209
+      spriteID: d5aed463de85e4d75b534bef4d4b45af
+      internalID: 1122023145
       vertices: []
       indices: 
       edges: []
@@ -163,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84a9b75238cc445118ee64b162e94903
-      internalID: -298936720
+      spriteID: afbbb6eb411b14549b910005452ff164
+      internalID: -1446893505
       vertices: []
       indices: 
       edges: []
@@ -184,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22192c53b70c84f7eb3bbd02e0e0871c
-      internalID: 1348057561
+      spriteID: df95ec6091e954170a40bcd8e34097c5
+      internalID: 1972544862
       vertices: []
       indices: 
       edges: []
@@ -205,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d367fb4fe72e14f80b67754ea1e16887
-      internalID: -1455941739
+      spriteID: ad3eb15754ade4257a7ea3a1de080a8b
+      internalID: 2027075377
       vertices: []
       indices: 
       edges: []
@@ -226,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb911eb9b8b484999832a374ba3334af
-      internalID: 1271594934
+      spriteID: 1f37500e6cbe94ede821ed983bd7ea3c
+      internalID: 1577355086
       vertices: []
       indices: 
       edges: []
@@ -247,8 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fbf54b99547c4357936d2c6889bc751
-      internalID: -312764974
+      spriteID: 6b6c37d75dfc54effa7dfd17dfee8d58
+      internalID: 1192245053
       vertices: []
       indices: 
       edges: []
@@ -268,8 +292,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 385dd9ecbf26940f4b5bf296380d3c45
-      internalID: 246640955
+      spriteID: ce7da72ea11fc46c28a116686aaa7976
+      internalID: -1171332710
       vertices: []
       indices: 
       edges: []
@@ -289,8 +313,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb4172f91336a438ebd15b71908a5310
-      internalID: -2120288931
+      spriteID: f42a02dc7afaf4c80aadeed6296a612e
+      internalID: 1697360246
       vertices: []
       indices: 
       edges: []
@@ -306,15 +330,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Deck 5's_0: 379133281
-      Deck 5's_1: 511461209
-      Deck 5's_2: -298936720
-      Deck 5's_3: 1348057561
-      Deck 5's_4: -1455941739
-      Deck 5's_5: 1271594934
-      Deck 5's_6: -312764974
-      Deck 5's_7: 246640955
-      Deck 5's_8: -2120288931
+      Deck 5's_2: -1446893505
+      Deck 5's_5: 1577355086
+      Deck 5's_6: 1192245053
+      Deck 5's_3: 1972544862
+      Deck 5's_7: -1171332710
+      Deck 5's_0: 145111111
+      Deck 5's_4: 2027075377
+      Deck 5's_8: 1697360246
+      Deck 5's_1: 1122023145
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -42,28 +42,25 @@ public class Raider : PlayerCard
         Player thisPlayer = Manager.instance.playerOrderGame[thisPlayerPosition];
         thisPlayer.pv.RPC("WaitForPlayer", RpcTarget.Others, this.name);
 
-        if (thisPlayer.listOfHand.Count > 2)
+        if (thisPlayer.listOfHand.Count > 1)
         {
             List<PlayerCard> toDiscard = thisPlayer.listOfHand;
 
-            for (int i = 2; i>0; i--)
-            { 
-                Manager.instance.instructions.text = $"Choose {i} cards to keep in hand.";
+            Manager.instance.instructions.text = $"Choose a card to keep in your hand.";
 
-                for (int j = 0; j < toDiscard.Count; j++)
-                {
-                    toDiscard[j].choicescript.EnableButton(thisPlayer, true);
-                }
-
-                yield return thisPlayer.WaitForDecision();
-
-                for (int j = 0; j < toDiscard.Count; j++)
-                    toDiscard[j].choicescript.DisableButton();
-
-                toDiscard.Remove(thisPlayer.chosencard.GetComponent<PlayerCard>());
+            for (int j = 0; j < toDiscard.Count; j++)
+            {
+                toDiscard[j].choicescript.EnableButton(thisPlayer, true);
             }
 
-            for (int i = 0; i<toDiscard.Count; i++)
+            yield return thisPlayer.WaitForDecision();
+
+            for (int j = 0; j < toDiscard.Count; j++)
+                toDiscard[j].choicescript.DisableButton();
+
+            toDiscard.Remove(thisPlayer.chosencard.GetComponent<PlayerCard>());
+
+            for (int i = 0; i < toDiscard.Count; i++)
             {
                 yield return toDiscard[i].DiscardEffect(thisPlayer, 1);
             }

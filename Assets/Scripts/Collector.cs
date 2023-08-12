@@ -39,7 +39,6 @@ public class Collector : MonoBehaviour
         buttonsInCollector.Remove(toDestroy);
         Destroy(toDestroy.gameObject);
 
-        Debug.Log(this.transform.GetChild(2).transform.childCount);
         if (this.transform.GetChild(2).transform.childCount <= 1)
             PhotonNetwork.Destroy(this.pv);
     }
@@ -53,8 +52,8 @@ public class Collector : MonoBehaviour
             buttonsInCollector.Remove(toDestroy);
             Destroy(toDestroy.gameObject);
         }
-
         AddCard(cardID, false);
+        imageWidth.sizeDelta = new Vector2(500, 400);
     }
 
     [PunRPC]

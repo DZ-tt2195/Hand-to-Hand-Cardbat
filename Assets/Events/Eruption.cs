@@ -48,7 +48,7 @@ public class Eruption : Event
         {
             for (int i = 0; i < goldCards.Count; i++)
             {
-                blueCards[i].choicescript.EnableButton(currPlayer, true);
+                goldCards[i].choicescript.EnableButton(currPlayer, true);
             }
             Manager.instance.instructions.text = $"Discard a Gold card from play";
             yield return currPlayer.WaitForDecision();

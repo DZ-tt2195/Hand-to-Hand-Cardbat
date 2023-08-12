@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0661b42d301674d599afeb34e650e751
+guid: 27056f724a3ed495e8a25b0b28f5eaf0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -103,11 +103,35 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Deck 0's_0
+      name: Deck 0's 1_0
       rect:
         serializedVersion: 2
         x: 116
@@ -121,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd5c56a3066894e45bd5be0fa6788df3
-      internalID: 1659379135
+      spriteID: f59f7b44a2c7a45e29a4b7cb7bd8d7c0
+      internalID: -2022769668
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Deck 0's_1
+      name: Deck 0's 1_1
       rect:
         serializedVersion: 2
         x: 883
@@ -142,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0165dbe0204674c6295dc2b4af91f707
-      internalID: -1648029406
+      spriteID: 51cd50e5ae99f427e8a5da9a80b3d16a
+      internalID: 398469109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Deck 0's_2
+      name: Deck 0's 1_2
       rect:
         serializedVersion: 2
         x: 1650
@@ -163,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6a0b79b53c894fff9d312dfa12bb49d
-      internalID: 1485190893
+      spriteID: 675f49c6995e64c60aa3fe3e59e780d2
+      internalID: 705031754
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Deck 0's_3
+      name: Deck 0's 1_3
       rect:
         serializedVersion: 2
         x: 116
@@ -184,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cd73da648dd24fccb6831498037bd97
-      internalID: -1423050488
+      spriteID: 3768e7a06227e423ea59ecd1c5aeb390
+      internalID: -162613845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Deck 0's_4
+      name: Deck 0's 1_4
       rect:
         serializedVersion: 2
         x: 883
@@ -205,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87c76380b40684e75811695dd488be06
-      internalID: 418384071
+      spriteID: d1d22f66d197248fcbf09b52545b1c50
+      internalID: -501039795
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Deck 0's_5
+      name: Deck 0's 1_5
       rect:
         serializedVersion: 2
         x: 1650
@@ -226,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28074d61836f24758bc404ce7be4cd6f
-      internalID: -185443027
+      spriteID: 52225d3ab6b394bab8f81b8ae13a26b8
+      internalID: -1727609109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Deck 0's_6
+      name: Deck 0's 1_6
       rect:
         serializedVersion: 2
         x: 116
@@ -247,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c73617666436742d2864c0cd4801951b
-      internalID: 265810308
+      spriteID: 1ff6875e20da348a9be7f2f38e808ee9
+      internalID: -753182230
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Deck 0's_7
+      name: Deck 0's 1_7
       rect:
         serializedVersion: 2
         x: 883
@@ -268,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdf4ddecf74054a13ad5e5674a72ac8d
-      internalID: -1642333280
+      spriteID: 5d640a725e89541cba8bccecc8bb0677
+      internalID: -304923825
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Deck 0's_8
+      name: Deck 0's 1_8
       rect:
         serializedVersion: 2
         x: 1650
@@ -289,8 +313,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 151b931c84389406da234621f460c769
-      internalID: -1957021309
+      spriteID: 7c60f9cda04484957bfa944f66be75ec
+      internalID: -367420924
       vertices: []
       indices: 
       edges: []
@@ -306,15 +330,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Deck 0's_0: 1659379135
-      Deck 0's_1: -1648029406
-      Deck 0's_2: 1485190893
-      Deck 0's_3: -1423050488
-      Deck 0's_4: 418384071
-      Deck 0's_5: -185443027
-      Deck 0's_6: 265810308
-      Deck 0's_7: -1642333280
-      Deck 0's_8: -1957021309
+      Deck 0's 1_2: 705031754
+      Deck 0's 1_4: -501039795
+      Deck 0's 1_7: -304923825
+      Deck 0's 1_1: 398469109
+      Deck 0's 1_0: -2022769668
+      Deck 0's 1_8: -367420924
+      Deck 0's 1_3: -162613845
+      Deck 0's 1_6: -753182230
+      Deck 0's 1_5: -1727609109
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

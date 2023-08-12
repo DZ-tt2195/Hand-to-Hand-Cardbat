@@ -609,6 +609,7 @@ public class Player : MonoBehaviourPunCallbacks
         AddCardByColor(newCard, 0, cardPlay.childCount - 1, false);
 
         yield return LoseCoin(newCard.myCost);
+        yield return new WaitForSeconds(0.25f);
         Log.instance.AddText($"{this.name} plays {newCard.logName}.");
 
         if (this.pv.AmOwner)
@@ -630,6 +631,7 @@ public class Player : MonoBehaviourPunCallbacks
         AddCardByColor(newCard, 0, cardPlay.childCount - 1, false);
 
         //yield return LoseCoin(newCard.myCost);
+        yield return new WaitForSeconds(0.25f);
         Log.instance.AddText($"{this.name} plays {newCard.logName} for free.");
 
         if (this.pv.AmOwner)
@@ -659,7 +661,7 @@ public class Player : MonoBehaviourPunCallbacks
     {
         PlayerCard discardMe = PhotonView.Find(cardID).GetComponent<PlayerCard>();
         cardsDiscardedThisTurn++;
-        this.transform.SetParent(Manager.instance.discard);
+        discardMe.transform.SetParent(Manager.instance.discard);
 
         switch (code)
         {

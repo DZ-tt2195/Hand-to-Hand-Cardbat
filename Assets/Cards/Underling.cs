@@ -17,6 +17,7 @@ public class Underling : PlayerCard
     public override IEnumerator NowCommand(Player currPlayer)
     {
         currPlayer.TryToDraw(1);
+        yield return new WaitForSeconds(0.5f);
 
         int playertracker = currPlayer.playerposition;
         for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)

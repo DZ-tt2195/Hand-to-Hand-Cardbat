@@ -14,7 +14,7 @@ public class Recruit : Action
             yield return currPlayer.ChooseToPlay(currPlayer.listOfHand, "Recruit");
         }
 
-        if (Manager.instance.turnNumber > 1-1)
+        if (Manager.instance.turnNumber > 1 - 1)
             yield return ColorCommand(currPlayer, PlayerCard.CardColor.Red);
 
         ActionEnd(currPlayer, PlayerCard.CardColor.Red);

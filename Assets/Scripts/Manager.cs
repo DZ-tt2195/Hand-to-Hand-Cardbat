@@ -221,7 +221,7 @@ public class Manager : MonoBehaviour, IOnEventCallback
         deck.Shuffle();
         for (int i = 0; i < playerOrderGame.Count; i++)
         {
-            playerOrderGame[i].pv.RPC("RequestDraw", RpcTarget.MasterClient, 3);
+            playerOrderGame[i].pv.RPC("RequestDraw", RpcTarget.MasterClient, 4);
         }
     }
 
@@ -246,6 +246,8 @@ public class Manager : MonoBehaviour, IOnEventCallback
             yield return new WaitForSeconds(0.5f);
             Log.instance.pv.RPC("AddText", RpcTarget.All, $"");
             Log.instance.pv.RPC("AddText", RpcTarget.All, $"ROUND {turnNumber+1}");
+            if (turnNumber == 0)
+                Log.instance.pv.RPC("AddText", RpcTarget.All, "You can't command cards this round.");
 
             for (int i = 0; i<chosenEvents.Count; i++)
             {
