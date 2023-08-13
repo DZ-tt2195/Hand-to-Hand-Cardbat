@@ -370,7 +370,7 @@ public class Manager : MonoBehaviour, IOnEventCallback
                 }
             }
             if (rp != null)
-                endText.text += $"\n\nResigned: {rp.name}: {rp.score} POINTS";
+                endText.text += $"\n\nResigned: {rp.name}: {rp.CalculateScore()} POINTS";
         }
     }
 

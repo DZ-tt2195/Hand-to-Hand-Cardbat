@@ -681,10 +681,11 @@ public class Player : MonoBehaviourPunCallbacks
         UpdateButtonText();
     }
 
-    public void CalculateScore()
+    public int CalculateScore()
     {
-        int totalScore = negCrowns;
+        score = negCrowns * -1;
         for (int i = 0; i < listOfPlay.Count; i++)
-            totalScore += listOfPlay[i].myCrowns;
+            score += listOfPlay[i].myCrowns;
+        return score;
     }
 }
