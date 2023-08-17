@@ -199,7 +199,7 @@ public class Player : MonoBehaviourPunCallbacks
         {
             PlayerCard lowCard = cardHand.GetChild(low).GetComponent<PlayerCard>();
 
-            if (nextCard.suitCode > lowCard.suitCode)
+            if (nextCard.suitCode >= lowCard.suitCode)
             {
                 if (hand)
                 {
@@ -275,7 +275,7 @@ public class Player : MonoBehaviourPunCallbacks
         {
             PlayerCard lowCard = cardHand.GetChild(low).GetComponent<PlayerCard>();
 
-            if (nextCard.myCost > lowCard.myCost)
+            if (nextCard.myCost >= lowCard.myCost)
             {
                 listOfHand.Insert(low + 1, nextCard);
                 nextCard.transform.SetParent(cardHand.transform);

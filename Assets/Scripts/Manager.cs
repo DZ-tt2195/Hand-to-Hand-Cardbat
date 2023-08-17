@@ -241,7 +241,7 @@ public class Manager : MonoBehaviour, IOnEventCallback
         { Receivers = ReceiverGroup.All };
         PhotonNetwork.RaiseEvent(AdvanceTurnEvent, sendingdata, raiseEventOptions, SendOptions.SendReliable);
 
-        while (gameon && turnNumber <= 9)
+        while (gameon)
         {
             yield return new WaitForSeconds(0.5f);
             Log.instance.pv.RPC("AddText", RpcTarget.All, $"");
@@ -261,11 +261,19 @@ public class Manager : MonoBehaviour, IOnEventCallback
                 yield return new WaitForSeconds(0.5f);
             }
 
-            sendingdata[0] = turnNumber + 1;
-            PhotonNetwork.RaiseEvent(AdvanceTurnEvent, sendingdata, raiseEventOptions, SendOptions.SendReliable);
+            if (turnNumber+1 != 10)
+            {
+                sendingdata[0] = turnNumber + 1;
+                PhotonNetwork.RaiseEvent(AdvanceTurnEvent, sendingdata, raiseEventOptions, SendOptions.SendReliable);
+            }
+            else
+            {
+                for (int i = 0; i<chosenEvents.Count; i++)
+                    chosenEvents[i].choicescript.DisableButton();
+                gameon = false;
+                GameOver("The game has ended.", -1);
+            }
         }
-
-        GameOver("The game has ended.", -1);
     }
 
     public void GameOver(string endText, int resignPosition)
@@ -366,7 +374,9 @@ public class Manager : MonoBehaviour, IOnEventCallback
                 if (i != resigningPlayer)
                 {
                     endText.text += $"\n{playerTracker}: {playerOrderGame[i].name}, {playerOrderGame[i].score} POINTS";
-                    playerTracker++;
+
+                    if (i + 1 < playerOrderGame.Count && playerOrderGame[i].score > playerOrderGame[i + 1].score)
+                        playerTracker++;
                 }
             }
             if (rp != null)
