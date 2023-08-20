@@ -16,6 +16,31 @@ public class Spy : PlayerCard
 
     public override IEnumerator NowCommand(Player currPlayer)
     {
-        yield return null;
+        currPlayer.MakeMeCollector("Spy", false);
+        Collector x = currPlayer.newCollector;
+
+        List<PlayerCard> otherPlayersCards = currPlayer.GetPreviousPlayer().listOfHand;
+        bool whiffed = true;
+
+        for (int i = 0; i < otherPlayersCards.Count; i++)
+        {
+            PlayerCard nextCard = otherPlayersCards[i];
+            if (nextCard.myCost <= 5)
+            {
+                whiffed = false;
+                x.pv.RPC("AddCard", RpcTarget.All, nextCard.pv.ViewID, true);
+            }
+        }
+        if (!whiffed)
+        {
+            yield return currPlayer.WaitForDecision();
+
+            PlayerCard commandMe = currPlayer.chosencard.GetComponent<PlayerCard>();
+            x.pv.RPC("DestroyOtherButtons", RpcTarget.All, commandMe.pv.ViewID);
+
+            yield return commandMe.InitialCommand(currPlayer, this);
+            PhotonNetwork.Destroy(x.pv);
+        }
+        PhotonNetwork.Destroy(x.pv);
     }
 }
