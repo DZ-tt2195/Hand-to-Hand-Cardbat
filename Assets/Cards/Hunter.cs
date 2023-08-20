@@ -95,6 +95,6 @@ public class Hunter : PlayerCard
                 thisPlayer.TryToGain(4);
             }
         }
-        Manager.instance.playerOrderGame[requestingPlayerPosition].pv.RPC("WaitDone", Manager.instance.playerOrderPhoton[requestingPlayerPosition]);
+        requestingPlayer.pv.RPC("WaitDone", Manager.instance.playerOrderPhoton[requestingPlayerPosition]);
     }
 }

@@ -48,6 +48,6 @@ public class Squire : PlayerCard
                 possibleCards.Add(thisPlayer.listOfHand[i]);
         }
         yield return thisPlayer.ChooseToPlay(possibleCards, $"{requestingPlayer.name}'s Squire");
-        Manager.instance.playerOrderGame[requestingPlayerPosition].pv.RPC("WaitDone", Manager.instance.playerOrderPhoton[requestingPlayerPosition]);
+        requestingPlayer.pv.RPC("WaitDone", Manager.instance.playerOrderPhoton[requestingPlayerPosition]);
     }
 }

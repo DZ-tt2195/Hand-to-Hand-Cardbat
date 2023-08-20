@@ -75,6 +75,6 @@ public class Vampire : PlayerCard
                 yield return toDiscard.DiscardEffect(thisPlayer, 2);
         }
 
-        Manager.instance.playerOrderGame[requestingPlayerPosition].pv.RPC("WaitDone", Manager.instance.playerOrderPhoton[requestingPlayerPosition]);
+        requestingPlayer.pv.RPC("WaitDone", Manager.instance.playerOrderPhoton[requestingPlayerPosition]);
     }
 }

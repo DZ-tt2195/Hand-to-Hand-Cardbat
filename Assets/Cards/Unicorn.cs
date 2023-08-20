@@ -16,6 +16,13 @@ public class Unicorn : PlayerCard
 
     public override IEnumerator NowCommand(Player currPlayer)
     {
+        currPlayer.pv.RPC("LoseCrown", RpcTarget.All, 1);
+        yield return null;
+    }
+
+    public override IEnumerator PlayEffect(Player currPlayer)
+    {
+        currPlayer.TryToGain(10);
         yield return null;
     }
 }

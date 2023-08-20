@@ -87,6 +87,6 @@ public class Bishop : PlayerCard
             thisPlayer.pv.RPC("LoseCrown", RpcTarget.All, 3);
         }
 
-        Manager.instance.playerOrderGame[requestingPlayerPosition].pv.RPC("WaitDone", Manager.instance.playerOrderPhoton[requestingPlayerPosition]);
+        requestingPlayer.pv.RPC("WaitDone", Manager.instance.playerOrderPhoton[requestingPlayerPosition]);
     }
 }

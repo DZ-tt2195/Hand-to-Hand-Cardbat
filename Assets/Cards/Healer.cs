@@ -18,8 +18,9 @@ public class Healer : PlayerCard
     {
         yield return null;
         currPlayer.TryToGain(5);
-        if (currPlayer.GetPreviousPlayer().lastUsedAction == Player.Actions.Collect)
-            currPlayer.pv.RPC("LoseCrown", RpcTarget.All, (2));
+        currPlayer.pv.RPC("LoseCrown", RpcTarget.All,
+        (currPlayer.GetPreviousPlayer().lastUsedAction == Player.Actions.Collect)
+        ? 2 : 0);
     }
 
 }
