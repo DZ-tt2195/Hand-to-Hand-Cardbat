@@ -11,7 +11,7 @@ public class PlayerCard : Card
     [HideInInspector] public int myCost;
     [HideInInspector] public int myCrowns;
     [HideInInspector] public bool rotated;
-    public int suitCode;
+    [HideInInspector] public int suitCode;
     public Sprite originalImage;
 
     void Start()
