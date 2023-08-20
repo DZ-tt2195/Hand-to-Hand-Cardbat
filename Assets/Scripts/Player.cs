@@ -49,6 +49,11 @@ public class Player : MonoBehaviourPunCallbacks
     public List<PlayerCard> cardsPlayedThisTurn;
     public int merchantDebt;
 
+    public enum TypeOfTurn { Normal, MeteorShower, Sphinx};
+    [HideInInspector] public TypeOfTurn thisTurn;
+    [HideInInspector] public int meteorShowerTurn;
+    [HideInInspector] public int sphinxTurn;
+
     private void Awake()
     {
         resign = GameObject.Find("Resign Button").GetComponent<Button>();
@@ -409,7 +414,7 @@ public class Player : MonoBehaviourPunCallbacks
 
     public IEnumerator TakeTurnRPC(Photon.Realtime.Player requestingplayer)
     {
-        pv.RPC("TakeTurn", requestingplayer, false);
+        pv.RPC("TakeTurn", requestingplayer, TypeOfTurn.Normal);
         pv.RPC("TurnStart", RpcTarget.All);
         while (turnon)
             yield return null;
@@ -468,13 +473,25 @@ public class Player : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    public IEnumerator TakeTurn(bool extra)
+    public IEnumerator TakeTurn(TypeOfTurn thisTurn)
     {
-        yield return null;
         if (pv.IsMine)
         {
+            this.thisTurn = thisTurn;
             Log.instance.pv.RPC("AddText", RpcTarget.All, $"");
-            Log.instance.pv.RPC("AddText", RpcTarget.All, $"{this.name}'s Turn");
+
+            switch (thisTurn)
+            {
+                case TypeOfTurn.Normal:
+                    Log.instance.pv.RPC("AddText", RpcTarget.All, $"{this.name}'s Turn");
+                    break;
+                case TypeOfTurn.MeteorShower:
+                    Log.instance.pv.RPC("AddText", RpcTarget.All, $"{this.name}'s Extra Turn (Meteor Shower)");
+                    break;
+                case TypeOfTurn.Sphinx:
+                    Log.instance.pv.RPC("AddText", RpcTarget.All, $"{this.name}'s Extra Turn (Sphinx)");
+                    break;
+            }
 
             ClickMe();
             pv.RPC("TurnStart", RpcTarget.All);
@@ -482,7 +499,7 @@ public class Player : MonoBehaviourPunCallbacks
 
             yield return ResolveEvents(Event.EventTrigger.TurnStart);
 
-            yield return ChooseYourAction(extra);
+            yield return ChooseYourAction();
 
             choice = "";
             chosencard = null;
@@ -493,21 +510,28 @@ public class Player : MonoBehaviourPunCallbacks
             for (int i = 0; i<Manager.instance.playerOrderGame.Count; i++)
                 Manager.instance.playerOrderGame[i].pv.RPC("ResetPlayerThings", RpcTarget.All);
 
-            if (lastUsedAction == Actions.Unleash && Manager.instance.EventActive("Meteor Shower"))
+            if (meteorShowerTurn > 0)
             {
-                Log.instance.pv.RPC("AddText", RpcTarget.All, $"{this.name} takes an extra turn.");
-                yield return TakeTurn(true);
+                meteorShowerTurn--;
+                yield return TakeTurn(TypeOfTurn.MeteorShower);
+            }
+            else if (sphinxTurn > 0)
+            {
+                sphinxTurn--;
+                yield return TakeTurn(TypeOfTurn.Sphinx);
             }
             else
+            {
                 photonView.RPC("TurnOver", RpcTarget.All);
+            }
         }
     }
 
-    IEnumerator ChooseYourAction(bool extra)
+    IEnumerator ChooseYourAction()
     {
         if (Manager.instance.EventActive("Job Fair"))
         {
-            Log.instance.pv.RPC("AddText", RpcTarget.All, $"{this.name} uses Recruit.");
+            Log.instance.pv.RPC("AddText", RpcTarget.All, $"{this.name} has to use Recruit.");
             yield return Manager.instance.listOfActions[2].UseAction(this);
         }
         else
@@ -518,7 +542,7 @@ public class Player : MonoBehaviourPunCallbacks
             Manager.instance.instructions.text = $"Choose an Action";
             for (int i = 0; i < Manager.instance.listOfActions.Count; i++)
             {
-                if (Manager.instance.listOfActions[i].name == "Unleash" && extra)
+                if (Manager.instance.listOfActions[i].name == "Unleash" && thisTurn == TypeOfTurn.MeteorShower)
                     x.pv.RPC("AddCard", RpcTarget.All, Manager.instance.listOfActions[i].pv.ViewID, false);
                 else
                     x.pv.RPC("AddCard", RpcTarget.All, Manager.instance.listOfActions[i].pv.ViewID, true);

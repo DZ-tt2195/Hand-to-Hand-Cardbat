@@ -9,7 +9,11 @@ public class Recruit : Action
     {
         currPlayer.currentAction = Player.Actions.Recruit;
 
-        if (!Manager.instance.EventActive("Vacation"))
+        if (Manager.instance.EventActive("Vacation"))
+        {
+            Log.instance.pv.RPC("AddText", RpcTarget.All, $"{this.name} skips Recruit's instructions.");
+        }
+        else
         { 
             yield return currPlayer.ChooseToPlay(currPlayer.listOfHand, "Recruit");
         }

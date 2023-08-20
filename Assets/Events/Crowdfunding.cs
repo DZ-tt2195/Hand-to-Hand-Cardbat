@@ -21,6 +21,7 @@ public class Crowdfunding : Event
         {
             currPlayer.MakeMeCollector($"Crowdfunding", true);
             Manager.instance.instructions.text = $"Pay $5 to remove -2 Crowns?";
+
             Collector x = currPlayer.newCollector;
             x.AddText("Yes", true);
             x.AddText("No", true);

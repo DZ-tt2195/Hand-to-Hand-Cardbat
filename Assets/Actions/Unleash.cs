@@ -23,7 +23,11 @@ public class Unleash : Action
             playertracker = (playertracker == Manager.instance.playerOrderGame.Count - 1) ? 0 : playertracker + 1;
         }
 
-        if (!Manager.instance.EventActive("Vacation"))
+        if (Manager.instance.EventActive("Vacation"))
+        {
+            Log.instance.pv.RPC("AddText", RpcTarget.All, $"{this.name} skips Unleash's instructions.");
+        }
+        else
         {
             currPlayer.pv.RPC("TakeCrown", RpcTarget.All, 5);
             currPlayer.TryToGain(10);
@@ -32,6 +36,11 @@ public class Unleash : Action
         }
 
         ActionEnd(currPlayer, PlayerCard.CardColor.None);
+
+        if (Manager.instance.EventActive("Meteor Shower"))
+        {
+            currPlayer.meteorShowerTurn++;
+        }
     }
 
     [PunRPC]

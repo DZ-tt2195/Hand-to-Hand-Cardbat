@@ -23,7 +23,11 @@ public class Explore : Action
             }
         }
 
-        if (!Manager.instance.EventActive("Vacation"))
+        if (Manager.instance.EventActive("Vacation"))
+        {
+            Log.instance.pv.RPC("AddText", RpcTarget.All, $"{this.name} skips Explore's instructions.");
+        }
+        else
         {
             currPlayer.TryToDraw(2);
         }

@@ -9,7 +9,11 @@ public class Collect : Action
     {
         currPlayer.currentAction = Player.Actions.Collect;
 
-        if (!Manager.instance.EventActive("Vacation"))
+        if (Manager.instance.EventActive("Vacation"))
+        {
+            Log.instance.pv.RPC("AddText", RpcTarget.All, $"{this.name} skips Collect's instructions.");
+        }
+        else
         {
             currPlayer.TryToGain(5);
         }
