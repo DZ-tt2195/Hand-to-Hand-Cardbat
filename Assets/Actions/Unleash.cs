@@ -39,6 +39,7 @@ public class Unleash : Action
 
         if (Manager.instance.EventActive("Meteor Shower"))
         {
+            Log.instance.pv.RPC("AddText", RpcTarget.All, $"{currPlayer.name} will take an extra turn.");
             currPlayer.meteorShowerTurn++;
         }
     }

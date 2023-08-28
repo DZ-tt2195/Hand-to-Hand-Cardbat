@@ -864,9 +864,11 @@ MonoBehaviour:
   newCollector: {fileID: 0}
   lastUsedAction: 0
   currentAction: 0
-  cardsDiscardedThisTurn: 0
   cardsPlayedThisTurn: []
   merchantDebt: 0
+  thisTurn: 0
+  meteorShowerTurn: 0
+  sphinxTurn: 0
 --- !u!1 &8147473651860981778
 GameObject:
   m_ObjectHideFlags: 0

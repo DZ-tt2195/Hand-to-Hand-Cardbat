@@ -52,7 +52,7 @@ public class Advisor : PlayerCard
         yield return null;
         Player requestingPlayer = Manager.instance.playerOrderGame[requestingPlayerPosition];
         Player thisPlayer = Manager.instance.playerOrderGame[thisPlayerPosition];
-        thisPlayer.pv.RPC("WaitForPlayer", RpcTarget.Others, this.name);
+        thisPlayer.pv.RPC("WaitForPlayer", RpcTarget.Others, thisPlayer.name);
 
         thisPlayer.MakeMeCollector($"Hunter", true);
         Manager.instance.instructions.text = $"Choose one for {requestingPlayer.name}'s Advisor to do.";

@@ -18,7 +18,7 @@ public class Kitsune : PlayerCard
     {
         yield return currPlayer.ChooseToPlay(currPlayer.listOfHand, "Kitsune");
 
-        currPlayer.MakeMeCollector($"Commerce", true);
+        currPlayer.MakeMeCollector($"Kitsune", true);
         Manager.instance.instructions.text = $"Choose a card you've in play to exchange?";
         Collector x = currPlayer.newCollector;
         x.AddText("Don't Exchange", true);

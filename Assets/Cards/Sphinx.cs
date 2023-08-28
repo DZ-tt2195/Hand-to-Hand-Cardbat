@@ -29,8 +29,11 @@ public class Sphinx : PlayerCard
 
             Destroy(x.gameObject);
             if (currPlayer.choice == "Yes")
+            {
+                currPlayer.pv.RPC("LoseCoin", RpcTarget.All, 8);
+                Log.instance.pv.RPC("AddText", RpcTarget.All, $"{currPlayer.name} will take an extra turn.");
                 currPlayer.sphinxTurn++;
-
+            }
         }
     }
 }
