@@ -76,6 +76,7 @@ MonoBehaviour:
   - BishopEffect
   - DestroyOtherButtons
   - MakeChoice
+  - UseEvent
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 0

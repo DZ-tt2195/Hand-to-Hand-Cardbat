@@ -42,7 +42,7 @@ public class Vampire : PlayerCard
         Player thisPlayer = Manager.instance.playerOrderGame[thisPlayerPosition];
         thisPlayer.pv.RPC("WaitForPlayer", RpcTarget.Others, this.name);
 
-        if (thisPlayer.listOfPlay.Count >= 5)
+        if (thisPlayer.listOfPlay.Count >= 4)
         {
             List<PlayerCard> possibleCards = new List<PlayerCard>();
             for (int i = 0; i<thisPlayer.listOfPlay.Count; i++)

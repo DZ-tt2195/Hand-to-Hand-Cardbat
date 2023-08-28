@@ -335,11 +335,13 @@ public class Player : MonoBehaviourPunCallbacks
     {
         if (Manager.instance.EventActive("Masquerade") && Manager.instance.currentPlayer == this)
         {
-            GetPreviousPlayer().pv.RPC("GainCoin", RpcTarget.All, coinsToGain);
             Log.instance.AddText($"{this.name} would gain ${coinsToGain}.");
+            GetPreviousPlayer().pv.RPC("GainCoin", RpcTarget.All, coinsToGain);
         }
         else
+        {
             this.pv.RPC("GainCoin", RpcTarget.All, coinsToGain);
+        }
     }
 
     [PunRPC]
@@ -582,14 +584,14 @@ public class Player : MonoBehaviourPunCallbacks
             yield return null;
     }
 
-    public IEnumerator ChooseToPlay(List<PlayerCard> cardsToChoose, string source)
+    public IEnumerator ChooseToPlay(List<PlayerCard> cardsToChoose, string source, bool forFree)
     {
         if (cardsToChoose.Count > 0)
         {
             int canBePlayed = 0;
             for (int i = 0; i < cardsToChoose.Count; i++)
             {
-                if (cardsToChoose[i].CanPlayThis(this))
+                if (forFree || cardsToChoose[i].CanPlayThis(this))
                 {
                     canBePlayed++;
                     cardsToChoose[i].choicescript.EnableButton(this, true);
@@ -599,9 +601,13 @@ public class Player : MonoBehaviourPunCallbacks
             if (canBePlayed > 0)
             {
                 this.MakeMeCollector($"{source}", true);
-                Manager.instance.instructions.text = $"Play a card with {source}?";
                 Collector x = newCollector;
                 x.AddText("Decline", true);
+
+                if (forFree)
+                    Manager.instance.instructions.text = $"Play a card for free with {source}?";
+                else
+                    Manager.instance.instructions.text = $"Play a card with {source}?";
 
                 yield return WaitForDecision();
 
@@ -611,7 +617,10 @@ public class Player : MonoBehaviourPunCallbacks
 
                 if (choice != "Decline")
                 {
-                    this.pv.RPC("PlayCard", RpcTarget.All, chosencard.pv.ViewID);
+                    if (forFree)
+                        this.pv.RPC("FreePlayMe", RpcTarget.All, chosencard.pv.ViewID);
+                    else
+                        this.pv.RPC("PlayCard", RpcTarget.All, chosencard.pv.ViewID);
 
                     waiting = true;
                     while (waiting)
@@ -619,6 +628,11 @@ public class Player : MonoBehaviourPunCallbacks
                 }
             }
         }
+    }
+
+    public IEnumerator ChooseToPlay(List<PlayerCard> cardsToChoose, string source)
+    {
+        yield return ChooseToPlay(cardsToChoose, source, false);
     }
 
     [PunRPC]
@@ -672,7 +686,7 @@ public class Player : MonoBehaviourPunCallbacks
             newCollector = Instantiate((Manager.instance.textCollector));
             newCollector.StatsSetup(itsText, this.playerposition, -150);
         }
-        else
+        else //if card collector
         {
             GameObject nc = PhotonNetwork.Instantiate(Manager.instance.cardCollector.name, new Vector3(0, -200, 0), Quaternion.identity);
             newCollector = nc.GetComponent<Collector>();
@@ -701,6 +715,9 @@ public class Player : MonoBehaviourPunCallbacks
                 listOfPlay.Remove(discardMe);
                 break;
         }
+
+        if (this.pv.AmOwner && Manager.instance.EventActive("Cleaning"))
+            this.TryToGain(1);
 
         UpdateButtonText();
     }
