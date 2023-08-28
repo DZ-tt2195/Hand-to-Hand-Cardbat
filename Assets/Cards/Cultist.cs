@@ -34,8 +34,10 @@ public class Cultist : PlayerCard
 
             if (currPlayer.choice == "Yes")
             {
-                currPlayer.cardsDiscardedThisTurn++;
                 currPlayer.pv.RPC("FreePlayMe", RpcTarget.All, this.pv.ViewID);
+
+                if (currPlayer.pv.AmOwner && Manager.instance.EventActive("Cleaning"))
+                    currPlayer.TryToGain(1);
             }
             else
             {

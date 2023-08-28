@@ -45,7 +45,6 @@ public class Player : MonoBehaviourPunCallbacks
     public Actions lastUsedAction;
     public Actions currentAction;
 
-    public int cardsDiscardedThisTurn;
     public List<PlayerCard> cardsPlayedThisTurn;
     public int merchantDebt;
 
@@ -132,7 +131,9 @@ public class Player : MonoBehaviourPunCallbacks
             Log.instance.AddText($"{this.name} would draw {cardsToDraw} cards.");
         }
         else
+        {
             this.pv.RPC("RequestDraw", RpcTarget.MasterClient, cardsToDraw);
+        }
     }
 
     [PunRPC]
@@ -154,18 +155,25 @@ public class Player : MonoBehaviourPunCallbacks
             x.transform.SetParent(null);
         }
 
-        photonView.RPC("SendDraw", RpcTarget.All, cardIDs);
+        photonView.RPC("SendDraw", RpcTarget.All, cardIDs, false);
     }
 
     [PunRPC]
-    IEnumerator SendDraw(int[] cardIDs)
+    public IEnumerator SendDraw(int[] cardIDs, bool publicReturn)
     {
         for (int i = 0; i < cardIDs.Length; i++)
         {
             yield return new WaitForSeconds(0.03f);
             PlayerCard nextCard = PhotonView.Find(cardIDs[i]).gameObject.GetComponent<PlayerCard>();
+            nextCard.UnRotateMe();
 
-            if (this.pv.AmOwner)
+            if (publicReturn)
+            {
+                Log.instance.AddText($"{this.name} returns {nextCard.logName} to their hand.");
+                nextCard.image.sprite = nextCard.originalImage;
+                listOfPlay.Remove(nextCard);
+            }
+            else if (this.pv.AmOwner)
             {
                 Log.instance.AddText($"{this.name} draws {nextCard.logName}.");
                 nextCard.image.sprite = nextCard.originalImage;
@@ -564,7 +572,6 @@ public class Player : MonoBehaviourPunCallbacks
         lastUsedAction = currentAction;
         currentAction = Actions.None;
         cardsPlayedThisTurn.Clear();
-        cardsDiscardedThisTurn = 0;
 
         if (merchantDebt > 0)
         {
@@ -698,7 +705,6 @@ public class Player : MonoBehaviourPunCallbacks
     public void PutInDiscard(int cardID, int code)
     {
         PlayerCard discardMe = PhotonView.Find(cardID).GetComponent<PlayerCard>();
-        cardsDiscardedThisTurn++;
         discardMe.transform.SetParent(Manager.instance.discard);
 
         switch (code)
