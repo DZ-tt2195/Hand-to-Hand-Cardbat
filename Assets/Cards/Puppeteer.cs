@@ -44,12 +44,10 @@ public class Puppeteer : PlayerCard
             yield return currPlayer.WaitForDecision();
 
             for (int i = 0; i < currPlayer.GetPreviousPlayer().listOfPlay.Count; i++)
-            {
                 currPlayer.GetPreviousPlayer().listOfPlay[i].choicescript.DisableButton();
-            }
 
             PlayerCard firstCommand = currPlayer.chosencard.GetComponent<PlayerCard>();
-            currPlayer.MakeMeCollector($"Overlord", false);
+            currPlayer.MakeMeCollector($"Puppeteer", false);
             Collector x = currPlayer.newCollector;
             x.pv.RPC("AddCard", RpcTarget.All, firstCommand.pv.ViewID, false);
             yield return firstCommand.InitialCommand(currPlayer, this);
@@ -87,9 +85,7 @@ public class Puppeteer : PlayerCard
                 yield return currPlayer.WaitForDecision();
 
                 for (int i = 0; i < currPlayer.GetPreviousPlayer().listOfPlay.Count; i++)
-                {
                     currPlayer.GetPreviousPlayer().listOfPlay[i].choicescript.DisableButton();
-                }
 
                 PlayerCard secondCommand = currPlayer.chosencard.GetComponent<PlayerCard>();
                 x.pv.RPC("AddCard", RpcTarget.All, firstCommand.pv.ViewID, false);

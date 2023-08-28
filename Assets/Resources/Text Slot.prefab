@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
+  m_fontSize: 40
   m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -271,9 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   choosingplayer: {fileID: 0}
-  button: {fileID: 2023335336927519802}
   image: {fileID: 0}
   textbox: {fileID: 3227787504611138879}
   border: {fileID: 0}
-  enableBorder: 0
   card: {fileID: 0}

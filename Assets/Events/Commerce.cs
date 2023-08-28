@@ -27,7 +27,7 @@ public class Commerce : Event
             currPlayer.MakeMeCollector($"Commerce", true);
             Manager.instance.instructions.text = $"Discard a card from play to play a card for free?";
             Collector x = currPlayer.newCollector;
-            x.AddText("No", true);
+            x.AddText("Decline", true);
 
             for (int i = 0; i< currPlayer.listOfPlay.Count; i++)
                 currPlayer.listOfPlay[i].choicescript.EnableButton(currPlayer, true);

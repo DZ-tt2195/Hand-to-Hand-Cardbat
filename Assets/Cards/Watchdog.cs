@@ -19,13 +19,13 @@ public class Watchdog : PlayerCard
         currPlayer.MakeMeCollector($"Watchdog", false);
         Manager.instance.instructions.text = $"Return a card to your hand to command it?";
         Collector x = currPlayer.newCollector;
+        x.AddText("Decline", true);
 
         for (int i = 0; i<currPlayer.listOfPlay.Count; i++)
-        {
             currPlayer.listOfPlay[i].choicescript.EnableButton(currPlayer, true);
-        }
 
         yield return currPlayer.WaitForDecision();
+        Destroy(x.gameObject);
 
         for (int i = 0; i < currPlayer.listOfPlay.Count; i++)
             currPlayer.listOfPlay[i].choicescript.DisableButton();

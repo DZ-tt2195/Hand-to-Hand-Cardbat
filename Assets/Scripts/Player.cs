@@ -165,7 +165,7 @@ public class Player : MonoBehaviourPunCallbacks
         {
             yield return new WaitForSeconds(0.03f);
             PlayerCard nextCard = PhotonView.Find(cardIDs[i]).gameObject.GetComponent<PlayerCard>();
-            nextCard.UnRotateMe();
+            nextCard.pv.RPC("UnRotateMe", RpcTarget.All);
 
             if (publicReturn)
             {
@@ -193,7 +193,7 @@ public class Player : MonoBehaviourPunCallbacks
         photonView.RPC("UpdateButtonText", RpcTarget.All);
     }
 
-    void AddCardByColor(PlayerCard nextCard, int low, int high, bool hand)
+    public void AddCardByColor(PlayerCard nextCard, int low, int high, bool hand)
     {
         if (hand && this.listOfHand.Count == 0)
         {
