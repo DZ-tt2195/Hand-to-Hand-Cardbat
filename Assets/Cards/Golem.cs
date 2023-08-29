@@ -5,47 +5,23 @@ using Photon.Pun;
 
 public class Golem : PlayerCard
 {
-    public bool GetCard;
-    public bool GetCoin;
-    public bool GetPlay;
-
     public override void Setup()
     {
         logName = "a Golem";
         myColor = CardColor.Gold;
         myCost = 5;
-        myCrowns = 2;
+        myCrowns = 32;
         director = false;
     }
 
     public override IEnumerator NowCommand(Player currPlayer)
     {
-        GetCard = true;
-        GetCoin = true;
-        GetPlay = true;
-
         Player prevPlayer = currPlayer.GetPreviousPlayer();
         this.pv.RPC("MakeChoice", prevPlayer.photonplayer, prevPlayer.playerposition, currPlayer.playerposition);
         currPlayer.waiting = true;
 
         while (currPlayer.waiting)
             yield return null;
-
-        if (GetCard)
-        {
-            currPlayer.TryToDraw(1);
-            yield return new WaitForSeconds(0.25f);
-        }
-        if (GetCoin)
-        {
-            currPlayer.TryToGain(5);
-            yield return new WaitForSeconds(0.25f);
-        }
-        if (GetPlay)
-        {
-            yield return currPlayer.ChooseToPlay(currPlayer.listOfHand, "Golem");
-        }
-
     }
 
     [PunRPC]
@@ -54,9 +30,9 @@ public class Golem : PlayerCard
         yield return null;
         Player requestingPlayer = Manager.instance.playerOrderGame[requestingPlayerPosition];
         Player thisPlayer = Manager.instance.playerOrderGame[thisPlayerPosition];
-        thisPlayer.pv.RPC("WaitForPlayer", RpcTarget.Others, this.name);
+        thisPlayer.pv.RPC("WaitForPlayer", RpcTarget.Others, thisPlayer.name);
 
-        thisPlayer.MakeMeCollector($"Hunter", true);
+        thisPlayer.MakeMeCollector($"Golem", true);
         Manager.instance.instructions.text = $"Choose one for {requestingPlayer.name}'s Golem to ignore.";
         Collector x = thisPlayer.newCollector;
 
@@ -71,16 +47,38 @@ public class Golem : PlayerCard
         switch (ignoreThis)
         {
             case "Draw 1":
-                GetCard = false;
-                Log.instance.pv.RPC("AddText", RpcTarget.All, $"{thisPlayer.name} blocks \"draw 1.\"");
+                Log.instance.pv.RPC("AddText", RpcTarget.All, $"{thisPlayer.name} chooses \"draw 1.\"");
+                this.pv.RPC("ExecuteChoice", thisPlayer.photonplayer, requestingPlayerPosition, "Draw 1");
                 break;
             case "Gain $5":
-                GetCoin = false;
-                Log.instance.pv.RPC("AddText", RpcTarget.All, $"{thisPlayer.name} blocks \"gain $5.\"");
+                Log.instance.pv.RPC("AddText", RpcTarget.All, $"{thisPlayer.name} chooses \"gain $5.\"");
+                this.pv.RPC("ExecuteChoice", thisPlayer.photonplayer, requestingPlayerPosition, "Gain 5");
                 break;
             case "Play 1":
-                GetPlay = false;
-                Log.instance.pv.RPC("AddText", RpcTarget.All, $"{thisPlayer.name} blocks \"play a card.\"");
+                Log.instance.pv.RPC("AddText", RpcTarget.All, $"{thisPlayer.name} chooses \"play 1 card.\"");
+                this.pv.RPC("ExecuteChoice", thisPlayer.photonplayer, requestingPlayerPosition, "Play 1");
+                break;
+        }
+    }
+
+    [PunRPC]
+    public IEnumerator ExecuteChoice(int requestingPlayerPosition, string choice)
+    {
+        Player requestingPlayer = Manager.instance.playerOrderGame[requestingPlayerPosition];
+
+        switch (choice)
+        {
+            case "Draw 1":
+                requestingPlayer.TryToGain(5);
+                yield return requestingPlayer.ChooseToPlay(requestingPlayer.listOfHand, "Golem");
+                break;
+            case "Gain $5":
+                requestingPlayer.TryToDraw(1);
+                yield return requestingPlayer.ChooseToPlay(requestingPlayer.listOfHand, "Golem");
+                break;
+            case "Play 1":
+                requestingPlayer.TryToDraw(1);
+                requestingPlayer.TryToGain(5);
                 break;
         }
 

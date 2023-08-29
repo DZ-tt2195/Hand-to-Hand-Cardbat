@@ -25,13 +25,15 @@ public class Spy : PlayerCard
         for (int i = 0; i < otherPlayersCards.Count; i++)
         {
             PlayerCard nextCard = otherPlayersCards[i];
+            x.pv.RPC("AddCard", RpcTarget.All, nextCard.pv.ViewID, (nextCard.myCost <= 5));
             if (nextCard.myCost <= 5)
-            {
                 whiffed = false;
-                x.pv.RPC("AddCard", RpcTarget.All, nextCard.pv.ViewID, true);
-            }
         }
-        if (!whiffed)
+        if (whiffed)
+        {
+            Log.instance.pv.RPC("AddText", RpcTarget.All, $"Spy has nothing to command.");
+        }
+        else
         {
             yield return currPlayer.WaitForDecision();
 

@@ -2578,9 +2578,6 @@ MonoBehaviour:
   rotated: 0
   suitCode: 0
   originalImage: {fileID: -398494419, guid: 3124dcd0bc72c438f856c6c7ef79ca2b, type: 3}
-  GetCard: 0
-  GetCoin: 0
-  GetPlay: 0
 --- !u!114 &234923681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6393,8 +6390,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 30
@@ -10811,9 +10808,6 @@ MonoBehaviour:
   rotated: 0
   suitCode: 0
   originalImage: {fileID: -398494419, guid: 3124dcd0bc72c438f856c6c7ef79ca2b, type: 3}
-  GetCard: 0
-  GetCoin: 0
-  GetPlay: 0
 --- !u!114 &708154417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25688,9 +25682,6 @@ MonoBehaviour:
   rotated: 0
   suitCode: 0
   originalImage: {fileID: 1335704668, guid: 14dd25337ac1c41dd9c26e4ab98eaa98, type: 3}
-  GetCard: 0
-  GetCoin: 0
-  GetPlay: 0
 --- !u!114 &1524326519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29044,9 +29035,6 @@ MonoBehaviour:
   rotated: 0
   suitCode: 0
   originalImage: {fileID: -398494419, guid: 3124dcd0bc72c438f856c6c7ef79ca2b, type: 3}
-  GetCard: 0
-  GetCoin: 0
-  GetPlay: 0
 --- !u!114 &1659160709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29247,9 +29235,6 @@ MonoBehaviour:
   rotated: 0
   suitCode: 0
   originalImage: {fileID: 1335704668, guid: 14dd25337ac1c41dd9c26e4ab98eaa98, type: 3}
-  GetCard: 0
-  GetCoin: 0
-  GetPlay: 0
 --- !u!114 &1659296456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30450,9 +30435,6 @@ MonoBehaviour:
   rotated: 0
   suitCode: 0
   originalImage: {fileID: 1335704668, guid: 14dd25337ac1c41dd9c26e4ab98eaa98, type: 3}
-  GetCard: 0
-  GetCoin: 0
-  GetPlay: 0
 --- !u!114 &1740091899
 MonoBehaviour:
   m_ObjectHideFlags: 0

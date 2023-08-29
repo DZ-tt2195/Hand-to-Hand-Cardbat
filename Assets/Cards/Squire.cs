@@ -39,7 +39,7 @@ public class Squire : PlayerCard
     {
         Player requestingPlayer = Manager.instance.playerOrderGame[requestingPlayerPosition];
         Player thisPlayer = Manager.instance.playerOrderGame[thisPlayerPosition];
-        thisPlayer.pv.RPC("WaitForPlayer", RpcTarget.Others, this.name);
+        thisPlayer.pv.RPC("WaitForPlayer", RpcTarget.Others, thisPlayer.name);
 
         List<PlayerCard> possibleCards = new List<PlayerCard>();
         for (int i = 0; i < thisPlayer.listOfHand.Count; i++)

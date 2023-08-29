@@ -38,13 +38,13 @@ public class Log : MonoBehaviour
         linesOfText++;
         textBox.text += text + "\n";
 
-        if (linesOfText >= 40)
+        if (linesOfText >= 47)
         {
-            textRT.sizeDelta = new Vector2(510, textRT.sizeDelta.y+34.5f);
+            textRT.sizeDelta = new Vector2(510, textRT.sizeDelta.y+28.75f);
 
             if (scroll.value <= 0.2f)
             {
-                textRT.localPosition = new Vector2(-40, textRT.localPosition.y + 25);
+                textRT.localPosition = new Vector2(-40, textRT.localPosition.y + 28);
                 scroll.value = 0;
             }
         }

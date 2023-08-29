@@ -32,6 +32,7 @@ public class Magpie : PlayerCard
                 if (currPlayer.choice == "Yes")
                 {
                     currPlayer.pv.RPC("LoseCoin", RpcTarget.All, 2);
+                    yield return new WaitForSeconds(0.02f);
                     currPlayer.pv.RPC("RequestDraw", RpcTarget.MasterClient, 1);
                 }
                 else

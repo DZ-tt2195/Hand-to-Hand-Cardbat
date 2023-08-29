@@ -607,6 +607,7 @@ public class Player : MonoBehaviourPunCallbacks
 
             if (canBePlayed > 0)
             {
+                yield return new WaitForSeconds(0.25f);
                 this.MakeMeCollector($"{source}", true);
                 Collector x = newCollector;
                 x.AddText("Decline", true);

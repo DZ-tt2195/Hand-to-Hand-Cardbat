@@ -222,6 +222,7 @@ public class Manager : MonoBehaviour, IOnEventCallback
         for (int i = 0; i < playerOrderGame.Count; i++)
         {
             playerOrderGame[i].pv.RPC("RequestDraw", RpcTarget.MasterClient, 4);
+            yield return new WaitForSeconds(0.25f);
         }
     }
 
@@ -258,7 +259,7 @@ public class Manager : MonoBehaviour, IOnEventCallback
             for (int i = 0; i < playerOrderGame.Count; i++)
             {
                 yield return playerOrderGame[i].TakeTurnRPC(playerOrderGame[i].photonplayer);
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.25f);
             }
 
             if (turnNumber+1 != 10)

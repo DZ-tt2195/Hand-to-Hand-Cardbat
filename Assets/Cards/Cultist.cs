@@ -31,6 +31,7 @@ public class Cultist : PlayerCard
             y.AddText("Yes", true);
             y.AddText("No", true);
             yield return currPlayer.WaitForDecision();
+            Destroy(y.gameObject);
 
             if (currPlayer.choice == "Yes")
             {

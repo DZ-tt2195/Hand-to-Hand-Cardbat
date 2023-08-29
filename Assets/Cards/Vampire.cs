@@ -40,7 +40,7 @@ public class Vampire : PlayerCard
     {
         Player requestingPlayer = Manager.instance.playerOrderGame[requestingPlayerPosition];
         Player thisPlayer = Manager.instance.playerOrderGame[thisPlayerPosition];
-        thisPlayer.pv.RPC("WaitForPlayer", RpcTarget.Others, this.name);
+        thisPlayer.pv.RPC("WaitForPlayer", RpcTarget.Others, thisPlayer.name);
 
         if (thisPlayer.listOfPlay.Count >= 4)
         {

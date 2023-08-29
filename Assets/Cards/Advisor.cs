@@ -5,10 +5,6 @@ using Photon.Pun;
 
 public class Advisor : PlayerCard
 {
-    public bool GetCard;
-    public bool GetCoin;
-    public bool GetPlay;
-
     public override void Setup()
     {
         logName = "an Advisor";
@@ -20,9 +16,6 @@ public class Advisor : PlayerCard
 
     public override IEnumerator NowCommand(Player currPlayer)
     {
-        GetCard = false;
-        GetCoin = false;
-        GetPlay = false;
 
         Player prevPlayer = currPlayer.GetPreviousPlayer();
         this.pv.RPC("MakeChoice", prevPlayer.photonplayer, prevPlayer.playerposition, currPlayer.playerposition);
@@ -30,20 +23,6 @@ public class Advisor : PlayerCard
 
         while (currPlayer.waiting)
             yield return null;
-
-        if (GetCard)
-        {
-            currPlayer.TryToDraw(3);
-        }
-        if (GetCoin)
-        {
-            currPlayer.TryToGain(12);
-        }
-        if (GetPlay)
-        {
-            yield return currPlayer.ChooseToPlay(currPlayer.listOfHand, "Golem");
-            yield return currPlayer.ChooseToPlay(currPlayer.listOfHand, "Golem");
-        }
     }
 
     [PunRPC]
@@ -54,7 +33,7 @@ public class Advisor : PlayerCard
         Player thisPlayer = Manager.instance.playerOrderGame[thisPlayerPosition];
         thisPlayer.pv.RPC("WaitForPlayer", RpcTarget.Others, thisPlayer.name);
 
-        thisPlayer.MakeMeCollector($"Hunter", true);
+        thisPlayer.MakeMeCollector($"Advisor", true);
         Manager.instance.instructions.text = $"Choose one for {requestingPlayer.name}'s Advisor to do.";
         Collector x = thisPlayer.newCollector;
 
@@ -69,16 +48,36 @@ public class Advisor : PlayerCard
         switch (ignoreThis)
         {
             case "Draw 3":
-                GetCard = true;
                 Log.instance.pv.RPC("AddText", RpcTarget.All, $"{thisPlayer.name} chooses \"draw 3.\"");
+                this.pv.RPC("ExecuteChoice", thisPlayer.photonplayer, requestingPlayerPosition, "Draw 3");
                 break;
             case "Gain $12":
-                GetCoin = true;
                 Log.instance.pv.RPC("AddText", RpcTarget.All, $"{thisPlayer.name} chooses \"gain $12.\"");
+                this.pv.RPC("ExecuteChoice", thisPlayer.photonplayer, requestingPlayerPosition, "Gain 12");
                 break;
             case "Play 2":
-                GetPlay = true;
                 Log.instance.pv.RPC("AddText", RpcTarget.All, $"{thisPlayer.name} chooses \"play 2 cards.\"");
+                this.pv.RPC("ExecuteChoice", thisPlayer.photonplayer, requestingPlayerPosition, "Play 2");
+                break;
+        }
+    }
+
+    [PunRPC]
+    public IEnumerator ExecuteChoice(int requestingPlayerPosition, string choice)
+    {
+        Player requestingPlayer = Manager.instance.playerOrderGame[requestingPlayerPosition];
+
+        switch (choice)
+        {
+            case "Draw 3":
+                requestingPlayer.TryToDraw(3);
+                break;
+            case "Gain $12":
+                requestingPlayer.TryToGain(12);
+                break;
+            case "Play 2":
+                yield return requestingPlayer.ChooseToPlay(requestingPlayer.listOfHand, "Advisor");
+                yield return requestingPlayer.ChooseToPlay(requestingPlayer.listOfHand, "Advisor");
                 break;
         }
 
