@@ -170,19 +170,18 @@ public class Player : MonoBehaviourPunCallbacks
             if (publicReturn)
             {
                 Log.instance.AddText($"{this.name} returns {nextCard.logName} to their hand.");
-                nextCard.image.sprite = nextCard.originalImage;
                 listOfPlay.Remove(nextCard);
             }
             else if (this.pv.AmOwner)
             {
                 Log.instance.AddText($"{this.name} draws {nextCard.logName}.");
-                nextCard.image.sprite = nextCard.originalImage;
             }
             else
             {
                 Log.instance.AddText($"{this.name} draws a card.");
-                nextCard.image.sprite = Manager.instance.hiddenCard;
             }
+
+            nextCard.image.sprite = (this.pv.AmOwner) ? nextCard.originalImage : Manager.instance.hiddenCard;
 
             if (Manager.instance.sorting == Manager.Sorting.color)
                 AddCardByColor(nextCard, 0, cardHand.childCount - 1, true);

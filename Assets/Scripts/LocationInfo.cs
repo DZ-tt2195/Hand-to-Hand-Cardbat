@@ -23,7 +23,11 @@ public class LocationInfo : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+    }
+
+    private void Update()
+    {
+        if (dropdown == null && SceneManager.GetActiveScene().buildIndex == 1)
         {
             dropdown = GameObject.Find("Event Dropdown").GetComponent<TMP_Dropdown>();
             dropdown.onValueChanged.AddListener(delegate { DropdownValueChanged(); });

@@ -41,7 +41,6 @@ public class Spy : PlayerCard
             x.pv.RPC("DestroyOtherButtons", RpcTarget.All, commandMe.pv.ViewID);
 
             yield return commandMe.InitialCommand(currPlayer, this);
-            PhotonNetwork.Destroy(x.pv);
         }
         PhotonNetwork.Destroy(x.pv);
     }

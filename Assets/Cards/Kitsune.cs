@@ -19,7 +19,7 @@ public class Kitsune : PlayerCard
         yield return currPlayer.ChooseToPlay(currPlayer.listOfHand, "Kitsune");
 
         currPlayer.MakeMeCollector($"Kitsune", true);
-        Manager.instance.instructions.text = $"Choose a card you've in play to exchange?";
+        Manager.instance.instructions.text = $"Exchange a card you have in play?";
         Collector x = currPlayer.newCollector;
         x.AddText("Don't Exchange", true);
 
@@ -36,10 +36,11 @@ public class Kitsune : PlayerCard
         {
             PlayerCard myExchange = currPlayer.chosencard.GetComponent<PlayerCard>();
             List<PlayerCard> couldExchangeFor = new List<PlayerCard>();
+            Player prevPlayer = currPlayer.GetPreviousPlayer();
 
-            for (int i = 0; i < currPlayer.GetPreviousPlayer().listOfHand.Count; i++)
+            for (int i = 0; i < prevPlayer.listOfPlay.Count; i++)
             {
-                PlayerCard nextCard = currPlayer.GetPreviousPlayer().listOfHand[i];
+                PlayerCard nextCard = prevPlayer.listOfPlay[i];
                 if (nextCard.myCost == myExchange.myCost)
                     couldExchangeFor.Add(nextCard);
             }
@@ -49,13 +50,14 @@ public class Kitsune : PlayerCard
                 for (int i = 0; i < couldExchangeFor.Count; i++)
                     couldExchangeFor[i].choicescript.EnableButton(currPlayer, true);
 
+                Manager.instance.instructions.text = $"Choose a card {prevPlayer.name} has in play.";
                 yield return currPlayer.WaitForDecision();
 
-                for (int i = 0; i < currPlayer.GetPreviousPlayer().listOfPlay.Count; i++)
-                    currPlayer.GetPreviousPlayer().listOfPlay[i].choicescript.DisableButton();
+                for (int i = 0; i < prevPlayer.listOfPlay.Count; i++)
+                    prevPlayer.listOfPlay[i].choicescript.DisableButton();
 
                 PlayerCard theirExchange = currPlayer.chosencard.GetComponent<PlayerCard>();
-                this.pv.RPC("ExchangeCards", RpcTarget.All, currPlayer.playerposition, currPlayer.GetPreviousPlayer().playerposition, myExchange.pv.ViewID, theirExchange.pv.ViewID);
+                this.pv.RPC("ExchangeCards", RpcTarget.All, currPlayer.playerposition, prevPlayer.playerposition, myExchange.pv.ViewID, theirExchange.pv.ViewID);
             }
         }
     }

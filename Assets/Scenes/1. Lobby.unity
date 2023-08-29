@@ -3452,6 +3452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc95b85cec5164aa4b5c315786de5fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropdown: {fileID: 2138335481}
   dropValue: 0
 --- !u!4 &1584762355
 Transform:
@@ -5060,7 +5061,6 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
