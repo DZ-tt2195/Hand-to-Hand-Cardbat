@@ -35,6 +35,7 @@ public class Cultist : PlayerCard
 
             if (currPlayer.choice == "Yes")
             {
+                Log.instance.AddText($"{this.name} discards {logName} from their hand.");
                 currPlayer.pv.RPC("FreePlayMe", RpcTarget.All, this.pv.ViewID);
 
                 if (currPlayer.pv.AmOwner && Manager.instance.EventActive("Cleaning"))

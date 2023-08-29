@@ -12,9 +12,11 @@ public class Card : MonoBehaviour
     [HideInInspector] public Image image;
     [HideInInspector] public SendChoice choicescript;
     [HideInInspector] public bool director;
+    [HideInInspector] public Vector3 originalPos;
 
     private void Awake()
     {
+        originalPos = this.transform.localPosition;
         pv = this.GetComponent<PhotonView>();
         image = GetComponent<Image>();
         choicescript = GetComponent<SendChoice>();

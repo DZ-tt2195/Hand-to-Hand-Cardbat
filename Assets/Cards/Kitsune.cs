@@ -77,7 +77,6 @@ public class Kitsune : PlayerCard
         currPlayer.AddCardByColor(prevExchange, 0, currPlayer.listOfPlay.Count, false);
         prevPlayer.AddCardByColor(currExchange, 0, prevPlayer.listOfPlay.Count, false);
 
-        Log.instance.AddText($"{currExchange.logName} and {prevExchange.logName} are exchanged.");
         Log.instance.AddText($"{currPlayer.name} receives {prevExchange.logName}.");
         Log.instance.AddText($"{prevPlayer.name} receives {currExchange.logName}.");
     }

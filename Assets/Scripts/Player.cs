@@ -538,6 +538,8 @@ public class Player : MonoBehaviourPunCallbacks
 
     IEnumerator ChooseYourAction()
     {
+        Log.instance.pv.RPC("AddText", RpcTarget.All, $"");
+
         if (Manager.instance.EventActive("Job Fair"))
         {
             Log.instance.pv.RPC("AddText", RpcTarget.All, $"{this.name} has to use Recruit.");
@@ -706,6 +708,7 @@ public class Player : MonoBehaviourPunCallbacks
     {
         PlayerCard discardMe = PhotonView.Find(cardID).GetComponent<PlayerCard>();
         discardMe.transform.SetParent(Manager.instance.discard);
+        discardMe.transform.localPosition = discardMe.originalPos;
 
         switch (code)
         {
@@ -717,7 +720,7 @@ public class Player : MonoBehaviourPunCallbacks
                 listOfHand.Remove(discardMe);
                 break;
             case 2:
-                Log.instance.AddText($"{this.name} discards {discardMe.logName} from play.");
+                Log.instance.AddText($"{this.name} discards {discardMe.logName} from their play area.");
                 listOfPlay.Remove(discardMe);
                 break;
         }

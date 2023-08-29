@@ -248,7 +248,7 @@ public class Manager : MonoBehaviour, IOnEventCallback
             Log.instance.pv.RPC("AddText", RpcTarget.All, $"");
             Log.instance.pv.RPC("AddText", RpcTarget.All, $"ROUND {turnNumber+1}");
             if (turnNumber == 0)
-                Log.instance.pv.RPC("AddText", RpcTarget.All, "You can't command cards this round.");
+                Log.instance.pv.RPC("AddText", RpcTarget.All, "Players can't command cards this round.");
 
             for (int i = 0; i<chosenEvents.Count; i++)
             {
