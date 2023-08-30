@@ -317,6 +317,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -384,6 +385,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -1192,6 +1194,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -1392,6 +1395,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -1592,6 +1596,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -2229,6 +2234,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -2372,6 +2378,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -2572,6 +2579,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -2772,6 +2780,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -3175,6 +3184,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -3857,6 +3867,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -3924,6 +3935,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -4124,6 +4136,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -4324,6 +4337,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -4524,6 +4538,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -4933,6 +4948,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -5133,6 +5149,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -5200,6 +5217,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -5533,6 +5551,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -5809,6 +5828,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -5951,6 +5971,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   active: 00000000000000000000
   thisTrigger: 0
 --- !u!114 &419618123
@@ -6158,7 +6179,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -2100, y: 5750}
+  m_AnchoredPosition: {x: -2415, y: 5754}
   m_SizeDelta: {x: 250, y: 410}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &431474340
@@ -6178,6 +6199,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   active: 00000000000000000000
   thisTrigger: 0
 --- !u!114 &431474341
@@ -6251,7 +6273,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1880822133, guid: 26b872395f9cc4d199e6ce8f96a11695, type: 3}
+  m_Sprite: {fileID: 1476441078, guid: 7b6e86181e670495598c2b37433f37e1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6501,6 +6523,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -6701,6 +6724,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -7523,6 +7547,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -7590,6 +7615,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -7866,6 +7892,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -8142,6 +8169,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -8475,6 +8503,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -8797,6 +8826,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -8997,6 +9027,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -9216,6 +9247,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -9784,6 +9816,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -10060,6 +10093,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -10602,6 +10636,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -10802,6 +10837,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -11078,6 +11114,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -11411,6 +11448,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -11477,6 +11515,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   active: 00000000000000000000
   thisTrigger: 0
 --- !u!114 &742489756
@@ -11840,6 +11879,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -12857,6 +12897,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -13122,6 +13163,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -13322,6 +13364,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -13655,6 +13698,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -13798,6 +13842,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -14074,6 +14119,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -14326,12 +14372,12 @@ RectTransform:
   - {fileID: 1936295915}
   - {fileID: 1217674610}
   - {fileID: 961777641}
-  - {fileID: 1751757494}
   - {fileID: 1712327103}
-  - {fileID: 1070557609}
   - {fileID: 431474339}
   - {fileID: 989102721}
   - {fileID: 1715979079}
+  - {fileID: 1070557609}
+  - {fileID: 1751757494}
   m_Father: {fileID: 572556304}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15008,7 +15054,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -2700, y: 5750}
+  m_AnchoredPosition: {x: -2555, y: 5753}
   m_SizeDelta: {x: 250, y: 410}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &961777642
@@ -15028,6 +15074,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   active: 00000000000000000000
   thisTrigger: 0
 --- !u!114 &961777643
@@ -15101,7 +15148,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 100866145, guid: 26b872395f9cc4d199e6ce8f96a11695, type: 3}
+  m_Sprite: {fileID: -1693692951, guid: 7b6e86181e670495598c2b37433f37e1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15294,7 +15341,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -1950, y: 5750}
+  m_AnchoredPosition: {x: -2256, y: 5752}
   m_SizeDelta: {x: 250, y: 410}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &989102722
@@ -15314,6 +15361,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   active: 00000000000000000000
   thisTrigger: 0
 --- !u!114 &989102723
@@ -15387,7 +15435,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -427010581, guid: 26b872395f9cc4d199e6ce8f96a11695, type: 3}
+  m_Sprite: {fileID: -751414025, guid: 7b6e86181e670495598c2b37433f37e1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15466,6 +15514,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -15818,6 +15867,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -16246,6 +16296,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -16534,6 +16585,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   active: 00000000000000000000
   thisTrigger: 0
 --- !u!1 &1061503719
@@ -16597,6 +16649,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -16852,7 +16905,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -2250, y: 5750}
+  m_AnchoredPosition: {x: -1945, y: 5750}
   m_SizeDelta: {x: 250, y: 410}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1070557610
@@ -16872,6 +16925,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   active: 00000000000000000000
   thisTrigger: 0
 --- !u!114 &1070557611
@@ -16945,7 +16999,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -981598830, guid: 26b872395f9cc4d199e6ce8f96a11695, type: 3}
+  m_Sprite: {fileID: -1729860611, guid: 7b6e86181e670495598c2b37433f37e1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17157,6 +17211,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -17300,6 +17355,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -17717,6 +17773,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -18012,6 +18069,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -18381,6 +18439,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -18657,6 +18716,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -18724,6 +18784,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -19000,6 +19061,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -19276,6 +19338,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -19780,6 +19843,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -20055,6 +20119,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   active: 00000000000000000000
   thisTrigger: 0
 --- !u!114 &1217674612
@@ -20128,7 +20193,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1124794554, guid: 26b872395f9cc4d199e6ce8f96a11695, type: 3}
+  m_Sprite: {fileID: -1380507235, guid: 7b6e86181e670495598c2b37433f37e1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -20416,6 +20481,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -20768,6 +20834,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -21196,6 +21263,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -21474,6 +21542,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -21674,6 +21743,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -22007,6 +22077,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -22150,6 +22221,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -22647,6 +22719,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -22923,6 +22996,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -23256,6 +23330,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -23323,6 +23398,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -24147,6 +24223,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -24366,6 +24443,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -24566,6 +24644,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -24766,6 +24845,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -25099,6 +25179,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -25609,6 +25690,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -25676,6 +25758,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -25876,6 +25959,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -26152,6 +26236,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -26485,6 +26570,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -26761,6 +26847,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -26828,6 +26915,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -27161,6 +27249,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
 --- !u!1001 &1583340299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27499,6 +27588,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   active: 00000000000000000000
   thisTrigger: 0
 --- !u!114 &1595833509
@@ -27860,6 +27950,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -27927,6 +28018,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -28279,6 +28371,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -28688,6 +28781,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -29029,6 +29123,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -29229,6 +29324,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -29505,6 +29601,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -29760,7 +29857,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -2400, y: 5750}
+  m_AnchoredPosition: {x: -2700, y: 5748}
   m_SizeDelta: {x: 250, y: 410}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1712327104
@@ -29780,6 +29877,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   active: 00000000000000000000
   thisTrigger: 0
 --- !u!114 &1712327105
@@ -29853,7 +29951,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 898258355, guid: 26b872395f9cc4d199e6ce8f96a11695, type: 3}
+  m_Sprite: {fileID: -797124276, guid: 7b6e86181e670495598c2b37433f37e1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -29911,7 +30009,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -1800, y: 5750}
+  m_AnchoredPosition: {x: -2100, y: 5748}
   m_SizeDelta: {x: 250, y: 410}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1715979080
@@ -29931,6 +30029,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   active: 00000000000000000000
   thisTrigger: 0
 --- !u!114 &1715979081
@@ -30004,7 +30103,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -595062840, guid: 26b872395f9cc4d199e6ce8f96a11695, type: 3}
+  m_Sprite: {fileID: 193160921, guid: 7b6e86181e670495598c2b37433f37e1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -30292,6 +30391,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1725912453
 GameObject:
   m_ObjectHideFlags: 0
@@ -30429,6 +30529,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -30608,7 +30709,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -2550, y: 5750}
+  m_AnchoredPosition: {x: -1794, y: 5750}
   m_SizeDelta: {x: 250, y: 410}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1751757495
@@ -30628,6 +30729,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   active: 00000000000000000000
   thisTrigger: 0
 --- !u!114 &1751757496
@@ -30701,7 +30803,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 362412309, guid: 26b872395f9cc4d199e6ce8f96a11695, type: 3}
+  m_Sprite: {fileID: -1452107943, guid: 7b6e86181e670495598c2b37433f37e1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -30913,6 +31015,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -31207,6 +31310,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   active: 00000000000000000000
   thisTrigger: 0
 --- !u!114 &1807805718
@@ -31663,6 +31767,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -31996,6 +32101,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -32139,6 +32245,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -32415,6 +32522,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -32691,6 +32799,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -33012,6 +33121,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -33408,6 +33518,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   active: 00000000000000000000
   thisTrigger: 0
 --- !u!114 &1932402749
@@ -33559,6 +33670,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   active: 00000000000000000000
   thisTrigger: 0
 --- !u!114 &1936295917
@@ -33632,7 +33744,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -885279555, guid: 26b872395f9cc4d199e6ce8f96a11695, type: 3}
+  m_Sprite: {fileID: -1936802248, guid: 7b6e86181e670495598c2b37433f37e1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -33996,6 +34108,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -34196,6 +34309,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -34339,6 +34453,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -34748,6 +34863,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -34891,6 +35007,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -35319,6 +35436,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -35652,6 +35770,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
 --- !u!1 &2017953780
 GameObject:
   m_ObjectHideFlags: 0
@@ -35713,6 +35832,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -36122,6 +36242,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
 --- !u!1 &2061478425
 GameObject:
   m_ObjectHideFlags: 0
@@ -36259,6 +36380,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -36535,6 +36657,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -36735,6 +36858,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -36935,6 +37059,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -37268,6 +37393,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0
@@ -38177,6 +38303,7 @@ MonoBehaviour:
   image: {fileID: 0}
   choicescript: {fileID: 0}
   director: 0
+  originalPos: {x: 0, y: 0, z: 0}
   myColor: 0
   myCost: 0
   myCrowns: 0

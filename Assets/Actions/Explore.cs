@@ -9,20 +9,6 @@ public class Explore : Action
     {
         currPlayer.currentAction = Player.Actions.Explore;
 
-        if (Manager.instance.EventActive("Expedition"))
-        {
-            List<PlayerCard> cardsOf0 = new List<PlayerCard>();
-            for (int i = 0; i < currPlayer.listOfHand.Count; i++)
-            {
-                if (currPlayer.listOfHand[i].myCost == 0 && currPlayer.coins >= currPlayer.listOfHand[i].myCost)
-                    cardsOf0.Add(currPlayer.listOfHand[i]);
-            }
-            for (int i = 0; i < 2; i++)
-            {
-                yield return currPlayer.ChooseToPlay(cardsOf0, "Expedition");
-            }
-        }
-
         if (Manager.instance.EventActive("Vacation"))
         {
             Log.instance.pv.RPC("AddText", RpcTarget.All, $"{this.name} skips Explore's instructions.");
