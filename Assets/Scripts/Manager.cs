@@ -12,7 +12,7 @@ using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour, IOnEventCallback
 {
-    [HideInInspector] public Player currentPlayer;
+    public Player currentPlayer;
     public static Manager instance;
     public Sprite hiddenCard;
 

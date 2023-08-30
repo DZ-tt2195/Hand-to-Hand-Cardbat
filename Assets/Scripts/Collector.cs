@@ -96,7 +96,7 @@ public class Collector : MonoBehaviour
         if (this.transform.GetChild(2).childCount <= 2)
             imageWidth.sizeDelta = new Vector2(500, 240);
         else
-            imageWidth.sizeDelta = new Vector2(500 * (this.transform.GetChild(2).childCount), 240);
+            imageWidth.sizeDelta = new Vector2(250 * (this.transform.GetChild(2).childCount), 240);
     }
 
     public void DisableAll()

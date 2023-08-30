@@ -423,8 +423,8 @@ public class Player : MonoBehaviourPunCallbacks
 
     public IEnumerator TakeTurnRPC(Photon.Realtime.Player requestingplayer)
     {
-        pv.RPC("TakeTurn", requestingplayer, TypeOfTurn.Normal);
         pv.RPC("TurnStart", RpcTarget.All);
+        pv.RPC("TakeTurn", requestingplayer, TypeOfTurn.Normal);
         while (turnon)
             yield return null;
     }

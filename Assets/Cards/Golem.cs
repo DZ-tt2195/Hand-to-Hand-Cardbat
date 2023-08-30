@@ -25,63 +25,63 @@ public class Golem : PlayerCard
     }
 
     [PunRPC]
-    public IEnumerator MakeChoice(int thisPlayerPosition, int requestingPlayerPosition)
+    public IEnumerator MakeChoice(int prevPlayerPosition, int currPlayerPosition)
     {
         yield return null;
-        Player requestingPlayer = Manager.instance.playerOrderGame[requestingPlayerPosition];
-        Player thisPlayer = Manager.instance.playerOrderGame[thisPlayerPosition];
-        thisPlayer.pv.RPC("WaitForPlayer", RpcTarget.Others, thisPlayer.name);
+        Player currPlayer = Manager.instance.playerOrderGame[currPlayerPosition];
+        Player prevPlayer = Manager.instance.playerOrderGame[prevPlayerPosition];
+        prevPlayer.pv.RPC("WaitForPlayer", RpcTarget.Others, prevPlayer.name);
 
-        thisPlayer.MakeMeCollector($"Golem", true);
-        Manager.instance.instructions.text = $"Choose one for {requestingPlayer.name}'s Golem to ignore.";
-        Collector x = thisPlayer.newCollector;
+        prevPlayer.MakeMeCollector($"Golem", true);
+        Manager.instance.instructions.text = $"Choose one for {currPlayer.name}'s Golem to ignore.";
+        Collector x = prevPlayer.newCollector;
 
         x.AddText("Draw 1", true);
         x.AddText("Gain $5", true);
         x.AddText("Play 1", true);
 
-        yield return thisPlayer.WaitForDecision();
+        yield return prevPlayer.WaitForDecision();
         Destroy(x.gameObject);
-        string ignoreThis = thisPlayer.choice;
+        string ignoreThis = prevPlayer.choice;
 
         switch (ignoreThis)
         {
             case "Draw 1":
-                Log.instance.pv.RPC("AddText", RpcTarget.All, $"{thisPlayer.name} chooses \"draw 1.\"");
-                this.pv.RPC("ExecuteChoice", thisPlayer.photonplayer, requestingPlayerPosition, "Draw 1");
+                Log.instance.pv.RPC("AddText", RpcTarget.All, $"{prevPlayer.name} chooses \"draw 1.\"");
+                this.pv.RPC("ExecuteChoice", prevPlayer.photonplayer, currPlayerPosition, "Draw 1");
                 break;
             case "Gain $5":
-                Log.instance.pv.RPC("AddText", RpcTarget.All, $"{thisPlayer.name} chooses \"gain $5.\"");
-                this.pv.RPC("ExecuteChoice", thisPlayer.photonplayer, requestingPlayerPosition, "Gain 5");
+                Log.instance.pv.RPC("AddText", RpcTarget.All, $"{prevPlayer.name} chooses \"gain $5.\"");
+                this.pv.RPC("ExecuteChoice", prevPlayer.photonplayer, currPlayerPosition, "Gain 5");
                 break;
             case "Play 1":
-                Log.instance.pv.RPC("AddText", RpcTarget.All, $"{thisPlayer.name} chooses \"play 1 card.\"");
-                this.pv.RPC("ExecuteChoice", thisPlayer.photonplayer, requestingPlayerPosition, "Play 1");
+                Log.instance.pv.RPC("AddText", RpcTarget.All, $"{prevPlayer.name} chooses \"play 1 card.\"");
+                this.pv.RPC("ExecuteChoice", prevPlayer.photonplayer, currPlayerPosition, "Play 1");
                 break;
         }
     }
 
     [PunRPC]
-    public IEnumerator ExecuteChoice(int requestingPlayerPosition, string choice)
+    public IEnumerator ExecuteChoice(int currPlayerPosition, string choice)
     {
-        Player requestingPlayer = Manager.instance.playerOrderGame[requestingPlayerPosition];
+        Player currPlayer = Manager.instance.playerOrderGame[currPlayerPosition];
 
         switch (choice)
         {
             case "Draw 1":
-                requestingPlayer.TryToGain(5);
-                yield return requestingPlayer.ChooseToPlay(requestingPlayer.listOfHand, "Golem");
+                currPlayer.TryToGain(5);
+                yield return currPlayer.ChooseToPlay(currPlayer.listOfHand, "Golem");
                 break;
             case "Gain $5":
-                requestingPlayer.TryToDraw(1);
-                yield return requestingPlayer.ChooseToPlay(requestingPlayer.listOfHand, "Golem");
+                currPlayer.TryToDraw(1);
+                yield return currPlayer.ChooseToPlay(currPlayer.listOfHand, "Golem");
                 break;
             case "Play 1":
-                requestingPlayer.TryToDraw(1);
-                requestingPlayer.TryToGain(5);
+                currPlayer.TryToDraw(1);
+                currPlayer.TryToGain(5);
                 break;
         }
 
-        requestingPlayer.pv.RPC("WaitDone", Manager.instance.playerOrderPhoton[requestingPlayerPosition]);
+        currPlayer.pv.RPC("WaitDone", Manager.instance.playerOrderPhoton[currPlayerPosition]);
     }
 }
