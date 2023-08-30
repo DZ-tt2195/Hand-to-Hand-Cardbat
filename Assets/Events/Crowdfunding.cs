@@ -9,6 +9,8 @@ public class Crowdfunding : Event
     {
         logName = "Crowdfunding";
         thisTrigger = EventTrigger.TurnEnd;
+        active[1 - 1] = true;
+        active[2 - 1] = true;
         active[3 - 1] = true;
         active[4 - 1] = true;
         active[5 - 1] = true;
