@@ -10,7 +10,7 @@ public class Golem : PlayerCard
         logName = "a Golem";
         myColor = CardColor.Gold;
         myCost = 5;
-        myCrowns = 32;
+        myCrowns = 2;
         director = false;
     }
 
